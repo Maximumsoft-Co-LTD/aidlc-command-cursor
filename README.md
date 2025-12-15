@@ -25,6 +25,148 @@
 
 ---
 
+## 🔄 AIDLC Workflow Diagram
+
+### Complete Workflow Overview
+
+```mermaid
+flowchart TB
+    subgraph INCEPTION["🔵 INCEPTION PHASE - What to Build"]
+        direction TB
+        WD["🔍 Workspace Detection<br/><small>Greenfield or Brownfield?</small>"]
+        RE["📖 Reverse Engineering<br/><small>Analyze existing code</small>"]
+        RA["📝 Requirements Analysis<br/><small>Gather & clarify needs</small>"]
+        US["👤 User Stories<br/><small>Define user scenarios</small>"]
+        WP["🗺️ Workflow Planning<br/><small>Plan execution stages</small>"]
+        AD["🏗️ Application Design<br/><small>Components & services</small>"]
+        UG["📦 Units Generation<br/><small>Split into work units</small>"]
+        
+        WD --> RE
+        RE --> RA
+        RA --> US
+        US --> WP
+        WP --> AD
+        AD --> UG
+    end
+
+    subgraph CONSTRUCTION["🟢 CONSTRUCTION PHASE - How to Build"]
+        direction TB
+        subgraph UNIT_LOOP["🔁 Per-Unit Loop"]
+            FD["⚙️ Functional Design<br/><small>Business logic details</small>"]
+            NFR["📐 NFR Requirements<br/><small>Performance, Security</small>"]
+            ND["🛡️ NFR Design<br/><small>Patterns & solutions</small>"]
+            ID["☁️ Infrastructure Design<br/><small>Deployment architecture</small>"]
+            CG["💻 Code Generation<br/><small>Generate & test code</small>"]
+            
+            FD --> NFR
+            NFR --> ND
+            ND --> ID
+            ID --> CG
+        end
+        BT["🔨 Build & Test<br/><small>Integration testing</small>"]
+        
+        UNIT_LOOP --> BT
+    end
+
+    subgraph OPERATIONS["🟡 OPERATIONS PHASE - Deploy & Run"]
+        OP["🚀 Operations<br/><small>Future: Deploy & Monitor</small>"]
+    end
+
+    INCEPTION --> CONSTRUCTION
+    CONSTRUCTION --> OPERATIONS
+
+    style INCEPTION fill:#3b82f6,color:#fff
+    style CONSTRUCTION fill:#22c55e,color:#fff
+    style OPERATIONS fill:#eab308,color:#000
+```
+
+### Decision Flow Diagram
+
+```mermaid
+flowchart TD
+    START(["/aidlc"]) --> CHECK{aidlc-state.md<br/>exists?}
+    
+    CHECK -->|No| WD["Workspace Detection"]
+    CHECK -->|Yes| RESUME["Resume from<br/>last stage"]
+    
+    WD --> SCAN{Existing<br/>source code?}
+    
+    SCAN -->|Yes| BROWN["🏭 Brownfield<br/>→ Reverse Engineering"]
+    SCAN -->|No| GREEN["🌱 Greenfield<br/>→ Requirements"]
+    
+    BROWN --> RE["Reverse Engineering"]
+    RE --> RA["Requirements Analysis"]
+    GREEN --> RA
+    
+    RA --> COMPLEX{Request<br/>complexity?}
+    
+    COMPLEX -->|Simple| SKIP_US["Skip User Stories"]
+    COMPLEX -->|Complex| US["User Stories"]
+    
+    US --> WP["Workflow Planning"]
+    SKIP_US --> WP
+    
+    WP --> ASSESS{Stages<br/>needed?}
+    
+    ASSESS --> AD["Application Design<br/>(if new components)"]
+    ASSESS --> UG["Units Generation<br/>(if multiple units)"]
+    
+    AD --> UG
+    UG --> LOOP["Per-Unit Construction"]
+    
+    LOOP --> BT["Build & Test"]
+    BT --> DONE([✅ Complete])
+    
+    style START fill:#6366f1,color:#fff
+    style DONE fill:#22c55e,color:#fff
+    style BROWN fill:#f97316,color:#fff
+    style GREEN fill:#10b981,color:#fff
+```
+
+### Stage Artifacts Flow
+
+```mermaid
+flowchart LR
+    subgraph INPUTS["📥 User Inputs"]
+        REQ["Requirements<br/>Description"]
+        QA["Q&A<br/>Responses"]
+        APPROVE["Stage<br/>Approvals"]
+    end
+
+    subgraph AIDLC["🤖 AIDLC Processing"]
+        direction TB
+        ANALYZE["Analyze<br/>& Plan"]
+        DESIGN["Design<br/>& Document"]
+        GENERATE["Generate<br/>Code"]
+    end
+
+    subgraph OUTPUTS["📤 Generated Artifacts"]
+        direction TB
+        DOCS["📋 Documentation<br/><small>requirements.md<br/>stories.md<br/>design docs</small>"]
+        CODE["💻 Source Code<br/><small>Business logic<br/>API layers<br/>Tests</small>"]
+        AUDIT["📝 Audit Trail<br/><small>Branch-based logs<br/>Decision history</small>"]
+    end
+
+    REQ --> ANALYZE
+    QA --> ANALYZE
+    APPROVE --> DESIGN
+    
+    ANALYZE --> DESIGN
+    DESIGN --> GENERATE
+    
+    DESIGN --> DOCS
+    GENERATE --> CODE
+    ANALYZE --> AUDIT
+    DESIGN --> AUDIT
+    GENERATE --> AUDIT
+
+    style INPUTS fill:#f3f4f6,stroke:#9ca3af
+    style AIDLC fill:#6366f1,color:#fff
+    style OUTPUTS fill:#f3f4f6,stroke:#9ca3af
+```
+
+---
+
 ## 📦 Installation
 
 ### Option 1: ใช้ Script (แนะนำ) ✨

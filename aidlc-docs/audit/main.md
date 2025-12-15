@@ -453,3 +453,136 @@
 
 ---
 
+## ========== NEW REQUEST ==========
+**Timestamp**: 2025-12-15T16:30:00Z
+**Branch**: main
+**User Input**: "เพิ่ม diagram สำหรับการใช้ aidlc นี้ ใน readme.md"
+**Context**: User requested workflow diagrams to be added to README documentation
+
+---
+
+## INCEPTION - Workspace Detection (Resume)
+**Timestamp**: 2025-12-15T16:30:01Z
+**Branch**: main
+**AI Action**: Checked existing aidlc-state.md
+**Findings**:
+- Project State: COMPLETE
+- Project Type: Greenfield
+- All previous stages completed
+**Decision**: Resume workflow for new enhancement request
+**Context**: Workspace Detection Step 1 - Check for existing AI-DLC Project
+
+---
+
+## INCEPTION - Requirements Analysis (Minimal Depth)
+**Timestamp**: 2025-12-15T16:30:02Z
+**Branch**: main
+**AI Action**: Intent Analysis for new request
+**Intent Analysis**:
+- Request Type: Enhancement
+- Request Clarity: Clear
+- Scope Estimate: Single File (README.md updates)
+- Complexity Estimate: Simple
+**Depth Selected**: Minimal (clear and simple request)
+**Context**: Requirements Analysis Step 2-3 - Analyze Request and Determine Depth
+
+---
+
+## INCEPTION - Requirements Analysis Complete
+**Timestamp**: 2025-12-15T16:30:03Z
+**Branch**: main
+**AI Action**: Requirements documented inline (minimal depth - no separate document needed)
+**Requirement Summary**:
+- Add Mermaid workflow diagrams to README.md
+- Show complete AIDLC workflow flow
+- Include decision points (Greenfield/Brownfield)
+- Visual representation of all phases
+**Files Affected**: README.md, .cursor/commands/README.md
+**Context**: Requirements Analysis Step 7 - Document requirements
+
+---
+
+## CONSTRUCTION - Code Generation (Direct)
+**Timestamp**: 2025-12-15T16:31:00Z
+**Branch**: main
+**AI Action**: Generated workflow diagrams in README files
+**Changes Made**:
+1. `README.md` - Added section "🔄 AIDLC Workflow Diagram" with:
+   - Complete Workflow Overview (3 phases with all stages)
+   - Decision Flow Diagram (Greenfield/Brownfield, complexity decisions)
+   - Stage Artifacts Flow (inputs → processing → outputs)
+2. `.cursor/commands/README.md` - Added enhanced diagrams:
+   - Complete AIDLC Workflow overview
+   - INCEPTION Phase Details
+   - CONSTRUCTION Phase Details
+   - Decision Flow
+**Context**: Code Generation - Implemented enhancement
+
+---
+
+## ========== REQUEST COMPLETE ==========
+**Timestamp**: 2025-12-15T16:31:30Z
+**Branch**: main
+**Request**: Add workflow diagrams to README
+**Status**: ✅ Complete
+**Artifacts Created**: 4 Mermaid diagrams added to 2 README files
+
+---
+
+## ========== NEW REQUEST ==========
+**Timestamp**: 2025-12-15T16:45:00Z
+**Branch**: main
+**User Input**: "สามารถ updaate. rule เลยได้ไหม ว่าถ้าคุยเกี่ยวการเพิ่มหรือแก้ไข เกี่ยวกับงานทั้งหมดที่ไม่ช่คำถามต้อง ตาม AIDLC เท่านั้น"
+**Context**: User requested rule update to enforce AIDLC workflow for all work requests
+
+---
+
+## INCEPTION - Requirements Analysis (Minimal Depth)
+**Timestamp**: 2025-12-15T16:45:01Z
+**Branch**: main
+**AI Action**: Intent Analysis
+**Intent Analysis**:
+- Request Type: Enhancement (Rule Update)
+- Request Clarity: Clear
+- Scope Estimate: Single File (core-workflow.mdc)
+- Complexity Estimate: Simple
+**Depth Selected**: Minimal
+**Context**: Requirements Analysis - Quick intent analysis for simple rule update
+
+---
+
+## CONSTRUCTION - Code Generation (Direct)
+**Timestamp**: 2025-12-15T16:45:30Z
+**Branch**: main
+**AI Action**: Updated core-workflow.mdc with Request Type Classification
+**Changes Made**:
+1. Added "🚨 CRITICAL: REQUEST TYPE CLASSIFICATION" section at top of file
+2. Added Request Classification Matrix (Question, Work Request, Status Check)
+3. Added Examples for each category
+4. Added "🔒 MANDATORY WORKFLOW ENFORCEMENT" section
+5. Clarified that Questions can be answered directly without workflow
+6. Enforced that Work Requests MUST follow AIDLC workflow
+**File Updated**: `.cursor/rules/aidlc-rules/aws-aidlc-rules/core-workflow.mdc`
+**Context**: Code Generation - Implemented rule enforcement
+
+---
+
+## ========== REQUEST COMPLETE ==========
+**Timestamp**: 2025-12-15T16:46:00Z
+**Branch**: main
+**Request**: Enforce AIDLC workflow for work requests
+**Status**: ✅ Complete
+**Changes**: core-workflow.mdc updated with Request Type Classification
+
+---
+
+## Quick Update - Language Change
+**Timestamp**: 2025-12-15T16:50:00Z
+**Branch**: main
+**User Input**: "ใน rule อยากให้ เป็น english เพื่อให้ ai เก่ง และเร็ว"
+**AI Action**: Changed all Thai examples in Request Type Classification to English
+**Rationale**: AI models perform better and faster with English text
+**File Updated**: core-workflow.mdc
+**Context**: Minor update to improve AI performance
+
+---

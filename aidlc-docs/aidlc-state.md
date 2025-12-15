@@ -42,3 +42,29 @@
 - **Files**: 14 `.md` command files
 - **Reference**: https://cursor.com/docs/agent/chat/commands
 
+---
+
+## Enhancement Requests (Post-Completion)
+
+### Enhancement 1: Workflow Diagrams
+- **Date**: 2025-12-15T16:30:00Z
+- **Request**: "เพิ่ม diagram สำหรับการใช้ aidlc นี้ ใน readme.md"
+- **Scope**: Simple (Documentation only)
+- **Workflow Used**: Minimal Depth (Requirements → Code Generation)
+- **Status**: ✅ Complete
+- **Changes**:
+  - Added 4 Mermaid diagrams to README.md
+  - Enhanced diagrams in .cursor/commands/README.md
+
+### Enhancement 2: Request Type Classification Rule
+- **Date**: 2025-12-15T16:45:00Z
+- **Request**: "enforce AIDLC workflow สำหรับ work requests ทั้งหมด"
+- **Scope**: Simple (Rule update)
+- **Workflow Used**: Minimal Depth (Requirements → Code Generation)
+- **Status**: ✅ Complete
+- **Changes**:
+  - Added Request Type Classification section to core-workflow.mdc
+  - Questions: Can answer directly without AIDLC workflow
+  - Work Requests: MUST follow AIDLC workflow
+  - Status Checks: Check state file and respond
+

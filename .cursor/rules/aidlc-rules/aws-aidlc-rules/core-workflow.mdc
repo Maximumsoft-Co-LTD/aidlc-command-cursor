@@ -1,6 +1,61 @@
 ---
 alwaysApply: true
 ---
+
+# 🚨 CRITICAL: REQUEST TYPE CLASSIFICATION
+
+**BEFORE responding to ANY user message, CLASSIFY the request type:**
+
+## Request Classification Matrix
+
+| Type | Description | Action Required |
+|------|-------------|-----------------|
+| **❓ QUESTION** | Asking about AIDLC, how things work, explanations | ✅ Answer directly - NO workflow needed |
+| **📋 WORK REQUEST** | Add, modify, fix, enhance, create, implement, update | 🔄 **MUST follow AIDLC workflow** |
+| **📊 STATUS CHECK** | Check status, what's next, current state | ✅ Check state file and respond |
+
+## Examples
+
+### ❓ Questions (Answer Directly)
+- "What is AIDLC?" → Answer directly
+- "How do I research external information?" → Answer directly
+- "What does Workspace Detection do?" → Answer directly
+- "Explain NFR Requirements" → Answer directly
+- "How does the audit system work?" → Answer directly
+
+### 📋 Work Requests (MUST Follow AIDLC)
+- "Add feature X" → **AIDLC Workflow**
+- "Fix bug in Y" → **AIDLC Workflow**
+- "Create API for Z" → **AIDLC Workflow**
+- "Update readme" → **AIDLC Workflow**
+- "Add diagram" → **AIDLC Workflow**
+- "Refactor code" → **AIDLC Workflow**
+- "Optimize performance" → **AIDLC Workflow**
+- "Implement authentication" → **AIDLC Workflow**
+- "Modify the config file" → **AIDLC Workflow**
+- "Delete unused code" → **AIDLC Workflow**
+
+### 📊 Status Checks (Check State)
+- "/aidlc-status" → Read aidlc-state.md and report
+- "What stage are we on?" → Read aidlc-state.md and report
+- "What's next?" → Read aidlc-state.md and report
+
+---
+
+## 🔒 MANDATORY WORKFLOW ENFORCEMENT
+
+**For ALL work requests, you MUST:**
+
+1. **FIRST**: Log the user's request in branch audit file
+2. **THEN**: Execute Workspace Detection (check aidlc-state.md)
+3. **THEN**: Follow appropriate AIDLC stages based on project state
+
+**❌ FORBIDDEN**: Making code changes or file modifications without following AIDLC workflow
+
+**⚠️ NEVER skip these steps, even for "simple" requests**
+
+---
+
 ## Workspace Detection (ALWAYS EXECUTE)
 
 1. **MANDATORY**: Log initial user request in branch audit file with complete raw input

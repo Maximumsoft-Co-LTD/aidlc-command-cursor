@@ -134,31 +134,92 @@ your-project/
 
 ## 🔄 Workflow Phases
 
-### 🔵 INCEPTION Phase
+### Complete AIDLC Workflow
+
+```mermaid
+flowchart TB
+    subgraph INCEPTION["🔵 INCEPTION PHASE"]
+        direction LR
+        WD["🔍 Workspace<br/>Detection"] --> RE["📖 Reverse<br/>Engineering"]
+        RE --> RA["📝 Requirements"]
+        RA --> US["👤 User Stories"]
+        US --> WP["🗺️ Workflow<br/>Planning"]
+        WP --> AD["🏗️ Application<br/>Design"]
+        AD --> UG["📦 Units<br/>Generation"]
+    end
+
+    subgraph CONSTRUCTION["🟢 CONSTRUCTION PHASE"]
+        direction LR
+        FD["⚙️ Functional<br/>Design"] --> NFR["📐 NFR<br/>Requirements"]
+        NFR --> ND["🛡️ NFR<br/>Design"]
+        ND --> ID["☁️ Infrastructure"]
+        ID --> CG["💻 Code<br/>Generation"]
+        CG --> BT["🔨 Build<br/>& Test"]
+    end
+
+    subgraph OPERATIONS["🟡 OPERATIONS PHASE"]
+        OP["🚀 Deploy & Monitor<br/>(Future)"]
+    end
+
+    INCEPTION --> CONSTRUCTION
+    CONSTRUCTION --> OPERATIONS
+
+    style INCEPTION fill:#3b82f6,color:#fff
+    style CONSTRUCTION fill:#22c55e,color:#fff
+    style OPERATIONS fill:#eab308,color:#000
+```
+
+### 🔵 INCEPTION Phase Details
 
 **Focus**: กำหนดว่าจะสร้างอะไร (WHAT)
 
 ```mermaid
 flowchart LR
-    WD[Workspace Detection] --> RE[Reverse Engineering]
-    RE --> RA[Requirements]
-    RA --> US[User Stories]
-    US --> WP[Workflow Planning]
-    WP --> AD[Application Design]
-    AD --> UG[Units Generation]
+    WD["🔍 Workspace Detection<br/><small>Greenfield/Brownfield</small>"] 
+    RE["📖 Reverse Engineering<br/><small>Analyze existing code</small>"]
+    RA["📝 Requirements<br/><small>Gather needs</small>"]
+    US["👤 User Stories<br/><small>Define scenarios</small>"]
+    WP["🗺️ Workflow Planning<br/><small>Plan stages</small>"]
+    AD["🏗️ Application Design<br/><small>Components</small>"]
+    UG["📦 Units Generation<br/><small>Split work</small>"]
+    
+    WD --> RE --> RA --> US --> WP --> AD --> UG
 ```
 
-### 🟢 CONSTRUCTION Phase
+### 🟢 CONSTRUCTION Phase Details
 
 **Focus**: กำหนดวิธีสร้าง (HOW)
 
 ```mermaid
 flowchart LR
-    FD[Functional Design] --> NFR[NFR Requirements]
-    NFR --> ND[NFR Design]
-    ND --> ID[Infrastructure]
-    ID --> CG[Code Generation]
-    CG --> BT[Build & Test]
+    FD["⚙️ Functional Design<br/><small>Business logic</small>"]
+    NFR["📐 NFR Requirements<br/><small>Performance, Security</small>"]
+    ND["🛡️ NFR Design<br/><small>Patterns</small>"]
+    ID["☁️ Infrastructure<br/><small>Deployment</small>"]
+    CG["💻 Code Generation<br/><small>Generate code</small>"]
+    BT["🔨 Build & Test<br/><small>Integration</small>"]
+    
+    FD --> NFR --> ND --> ID --> CG --> BT
+```
+
+### Decision Flow
+
+```mermaid
+flowchart TD
+    START(["/aidlc"]) --> CHECK{State exists?}
+    CHECK -->|No| SCAN{Source code?}
+    CHECK -->|Yes| RESUME["Resume"]
+    
+    SCAN -->|Yes| BROWN["🏭 Brownfield"]
+    SCAN -->|No| GREEN["🌱 Greenfield"]
+    
+    BROWN --> RE["Reverse Engineering"]
+    GREEN --> RA["Requirements"]
+    RE --> RA
+    
+    style START fill:#6366f1,color:#fff
+    style BROWN fill:#f97316,color:#fff
+    style GREEN fill:#10b981,color:#fff
 ```
 
 ---
