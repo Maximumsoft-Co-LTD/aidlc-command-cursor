@@ -40,9 +40,10 @@ AI จะเริ่ม workflow ให้อัตโนมัติ และ
 |---------|-------------|
 | `/aidlc` | 🏁 **Main entry** - เริ่ม, resume, หรือทำงานทุกอย่าง |
 | `/aidlc-status` | 📊 **Status** - แสดงสถานะปัจจุบัน |
+| `/aidlc-changelog` | 📝 **Changelog** - อัพเดต CHANGELOG.md |
 | `/aidlc-multi-repo` | 🔗 **Multi-Repo** - Configure related projects (advanced) |
 
-### ทำไมแค่ 3 Commands?
+### ทำไมแค่ 4 Commands?
 
 เพราะ **AIDLC core-workflow** จัดการทุกอย่างอัตโนมัติ:
 - ✅ Auto-detect Greenfield/Brownfield

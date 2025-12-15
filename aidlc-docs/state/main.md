@@ -141,3 +141,16 @@
   - Skip all inception/design stages for simple fixes
   - Direct to Code Generation for targeted fixes
   - Track fix cycles in state file
+
+### Enhancement 8: CHANGELOG Enforcement
+- **Date**: 2025-12-15T18:10:00Z
+- **Request**: "Update การทำ changelog ให้ใช้ standard keepachangelog.com พอเอาไปใช้จริง ชอบไม่ทำ changelog ให้"
+- **Scope**: Medium (Multiple rule file updates)
+- **Workflow Used**: Minimal Depth (Requirements → Code Generation)
+- **Status**: ✅ Complete
+- **Root Cause**: CHANGELOG update was optional checkbox, no validation, easy to skip
+- **Changes**:
+  - Updated `changelog-management.md`: Added Keep a Changelog standard, enforcement rules
+  - Updated `code-generation.md`: Step 12.1 marked MANDATORY, added pre-completion validation
+  - Updated `core-workflow.mdc`: Added CHANGELOG MANDATORY to Key Principles
+  - Added self-check prompt and completion message requirement

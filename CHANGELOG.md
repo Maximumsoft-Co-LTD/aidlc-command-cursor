@@ -16,6 +16,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.0] - 2025-12-15
+
+### Added
+- **`/aidlc-changelog` Command**: New command for user-triggered CHANGELOG updates
+  - User controls when to update CHANGELOG
+  - Summarizes all changes from current work
+  - Uses [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format
+
+### Changed
+- **CHANGELOG Workflow**: Moved from automatic (during Code Generation) to user-triggered command
+- **code-generation.md**: Removed automatic CHANGELOG update
+- **changelog-management.md**: Updated to reference `/aidlc-changelog` command
+
+---
+
 ## [2.1.0] - 2025-12-15
 
 ### Added

@@ -101,36 +101,6 @@ This stage generates code for each unit of work through two integrated parts:
 - [ ] Mark associated unit stories as [x] when their generation is finished
 - [ ] Update `aidlc-docs/state/{branch}.md` current status
 - [ ] Save all generated artifacts
-- [ ] Update `CHANGELOG.md` with unit changes (see Step 12.1)
-
-## Step 12.1: Update CHANGELOG.md
-
-After completing all steps for a unit, update the project's `CHANGELOG.md`:
-
-- [ ] Read existing `CHANGELOG.md` from project root
-- [ ] Add entry under `[Unreleased]` section:
-
-```markdown
-### Added
-- **{Unit Name}**: {Brief description of what was added}
-  - {Feature 1}
-  - {Feature 2}
-  - Related stories: {Story IDs from unit-story-map}
-```
-
-- [ ] If unit modified existing code, add under `### Changed`
-- [ ] If unit fixed bugs, add under `### Fixed`
-- [ ] Save updated CHANGELOG.md
-
-**Example Entry:**
-```markdown
-### Added
-- **User Authentication Module**: Complete authentication system with JWT
-  - Login/logout endpoints with token refresh
-  - Password reset with email verification
-  - Session management and security headers
-  - Related stories: US-001, US-002, US-003
-```
 
 ## Step 13: Continue or Complete Generation
 - [ ] If more steps remain, return to Step 10
@@ -148,7 +118,7 @@ After completing all steps for a unit, update the project's `CHANGELOG.md`:
         - Format: "Code generation has created [description]:"
         - List key code artifacts generated (bullet points)
         - List test coverage and documentation created
-        - Mention deployment artifacts and configuration files
+        - Include CHANGELOG.md update summary
         - DO NOT include workflow instructions ("please review", "let me know", "proceed to next phase", "before we proceed")
         - Keep factual and content-focused
      3. **Formatted Workflow Message** (mandatory): Always end with this exact format:

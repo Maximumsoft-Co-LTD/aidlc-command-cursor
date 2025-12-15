@@ -2,7 +2,19 @@
 
 ## Overview
 
-AIDLC automatically manages the project's `CHANGELOG.md` file to track all changes made through the AIDLC workflow. This ensures proper documentation and traceability of all modifications.
+AIDLC manages the project's `CHANGELOG.md` file following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) standard.
+
+**Use `/aidlc-changelog` command to update CHANGELOG.md when ready.**
+
+### Types of Changes
+| Type | Usage |
+|------|-------|
+| `Added` | New features |
+| `Changed` | Changes in existing functionality |
+| `Deprecated` | Soon-to-be removed features |
+| `Removed` | Now removed features |
+| `Fixed` | Bug fixes |
+| `Security` | Vulnerability fixes |
 
 ---
 
@@ -22,11 +34,11 @@ your-project/
 
 ## When to Create/Update CHANGELOG
 
-| Stage | Action |
-|-------|--------|
+| Trigger | Action |
+|---------|--------|
 | **aidlc-init** | Create initial CHANGELOG.md if not exists |
-| **Code Generation** | Add entry for generated code |
-| **Build and Test** | Finalize version entry |
+| **`/aidlc-changelog`** | User triggers to add entries for completed work |
+| **Release** | Convert [Unreleased] to versioned entry |
 
 ---
 

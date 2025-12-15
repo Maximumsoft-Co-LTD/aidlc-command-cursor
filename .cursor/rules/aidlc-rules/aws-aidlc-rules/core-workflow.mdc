@@ -417,10 +417,11 @@ AI:
 2. Load all steps from `construction/code-generation.md`
 3. **PART 1 - Planning**: Create code generation plan with checkboxes, get user approval
 4. **PART 2 - Generation**: Execute approved plan to generate code for this unit
-5. **MANDATORY**: Update `CHANGELOG.md` with changes (see `common/changelog-management.md` for format)
-6. **MANDATORY**: Present standardized 2-option completion message as defined in code-generation.md - DO NOT use emergent behavior
-7. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
-8. **MANDATORY**: Log user's response in branch audit file with complete raw input
+5. **MANDATORY**: Present standardized 2-option completion message as defined in code-generation.md - DO NOT use emergent behavior
+6. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
+7. **MANDATORY**: Log user's response in branch audit file with complete raw input
+
+**Note**: CHANGELOG is updated via `/aidlc-changelog` command when user is ready.
 
 ---
 
@@ -480,6 +481,7 @@ The Operations stage will eventually include:
   - Architecture diagrams, workflow visualizations, sequence diagrams, class diagrams
   - NO ASCII art, NO external image files, NO third-party diagram tools
 - **NO EMERGENT BEHAVIOR**: Construction phases MUST use standardized 2-option completion messages as defined in their respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
+- **CHANGELOG**: User triggers `/aidlc-changelog` command to update CHANGELOG.md. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## MANDATORY: Plan-Level Checkbox Enforcement
 
