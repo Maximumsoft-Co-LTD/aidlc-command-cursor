@@ -98,3 +98,4 @@ This guide should be referenced when:
 ## Key Takeaway
 
 **It's better to ask too many questions than to make incorrect assumptions.** The cost of asking clarifying questions upfront is far less than the cost of implementing the wrong solution based on assumptions.
+

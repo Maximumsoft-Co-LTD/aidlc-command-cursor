@@ -48,6 +48,38 @@ alwaysApply: true
 
 ---
 
+## 👋 First-Time Welcome Message
+
+**Display ONCE at the start of any NEW AI-DLC workflow (not for resuming sessions):**
+
+> **Welcome to AI-DLC (AI-Driven Development Life Cycle)!**
+>
+> I'll guide you through an adaptive software development workflow that intelligently tailors itself to your specific needs.
+>
+> **What is AI-DLC?**
+> AI-DLC is a structured yet flexible process that adapts to your project's needs:
+> - **Analyzes your requirements** and asks clarifying questions when needed
+> - **Plans the optimal approach** based on complexity and risk
+> - **Skips unnecessary steps** for simple changes while providing comprehensive coverage for complex projects
+> - **Documents everything** so you have a complete record of decisions and rationale
+>
+> **The Three-Phase Lifecycle:**
+> - 🔵 **INCEPTION** - Planning & Architecture (WHAT and WHY)
+> - 🟢 **CONSTRUCTION** - Design, Implementation & Test (HOW)
+> - 🟡 **OPERATIONS** - Deployment & Monitoring (future)
+>
+> **Key Principles:**
+> - ⚡ **Fully Adaptive**: Each stage independently evaluated
+> - 🎯 **Efficient**: Simple changes execute only essential stages
+> - 📋 **Comprehensive**: Complex changes get full treatment
+> - 🔍 **Transparent**: You see and approve the execution plan
+> - 📝 **Documented**: Complete audit trail of all decisions
+> - 🎛️ **User Control**: You can request stages be included or excluded
+>
+> Let's begin!
+
+---
+
 ## 🔄 FIX/RESUME FLOW (Post-Completion Errors)
 
 **Use this flow when:**
@@ -477,11 +509,54 @@ The Operations stage will eventually include:
   - **CRITICAL**: Log every interaction, not just approvals
 - **Quality Focus**: Complex changes get full treatment, simple changes stay efficient
 - **Content Validation**: Always validate content before file creation per content-validation.md rules
+- **Terminology Reference**: See `common/terminology.md` for glossary of AI-DLC terms (Phase vs Stage, Unit of Work, etc.)
 - **Mermaid Diagrams Only**: ALL diagrams MUST use Mermaid syntax (see content-validation.md for details)
   - Architecture diagrams, workflow visualizations, sequence diagrams, class diagrams
   - NO ASCII art, NO external image files, NO third-party diagram tools
 - **NO EMERGENT BEHAVIOR**: Construction phases MUST use standardized 2-option completion messages as defined in their respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
 - **CHANGELOG**: User triggers `/aidlc-changelog` command to update CHANGELOG.md. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
+
+## Mid-Workflow Change Handling
+
+Users may request changes to the execution plan during the workflow. Handle these types of changes:
+
+### Adding a Skipped Stage
+1. Confirm request with user
+2. Check prerequisites are complete
+3. Update execution plan and state file
+4. Execute the stage normally
+5. Log change in audit file
+
+### Skipping a Planned Stage
+1. Confirm request and warn about impact
+2. Get explicit confirmation
+3. Mark stage as "SKIPPED" in state file
+4. Note that later stages may require manual setup
+5. Log change in audit file
+
+### Restarting Current or Previous Stage
+1. Understand user's concern and offer options (modify vs. restart)
+2. If restart: Archive existing artifacts, reset checkboxes, re-execute
+3. For previous stages: Warn about cascading impact on dependent stages
+4. Log change in audit file
+
+### Changing Depth Level
+1. Confirm depth change (Minimal/Standard/Comprehensive)
+2. Update execution plan
+3. Follow new depth guidelines for remaining work
+4. Log change in audit file
+
+### Pausing Workflow
+1. Complete current step if possible
+2. Update all checkboxes and state file
+3. Log pause point in audit file
+4. On resume: Detect existing project and offer continuation options
+
+**General Rules:**
+- Always confirm before making destructive changes
+- Archive existing work before making changes
+- Update all tracking files (state, plan, audit) together
+- Log all changes thoroughly for audit trail
 
 ## MANDATORY: Plan-Level Checkbox Enforcement
 

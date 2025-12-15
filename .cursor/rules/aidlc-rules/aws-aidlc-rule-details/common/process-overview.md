@@ -139,3 +139,4 @@ flowchart TD
 - OPERATIONS is placeholder for future expansion
 - Simple changes may skip conditional INCEPTION stages
 - Complex changes get full INCEPTION and CONSTRUCTION treatment
+
