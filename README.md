@@ -84,21 +84,21 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    START(["/aidlc"]) --> CHECK{state/{branch}.md<br/>exists?}
+    START(["/aidlc"]) --> CHECK{"State file exists?"}
     
     CHECK -->|No| WD["Workspace Detection"]
-    CHECK -->|Yes| RESUME["Resume from<br/>last stage"]
+    CHECK -->|Yes| RESUME["Resume from last stage"]
     
-    WD --> SCAN{Existing<br/>source code?}
+    WD --> SCAN{"Existing source code?"}
     
-    SCAN -->|Yes| BROWN["🏭 Brownfield<br/>→ Reverse Engineering"]
-    SCAN -->|No| GREEN["🌱 Greenfield<br/>→ Requirements"]
+    SCAN -->|Yes| BROWN["🏭 Brownfield"]
+    SCAN -->|No| GREEN["🌱 Greenfield"]
     
     BROWN --> RE["Reverse Engineering"]
-    RE --> RA["Requirements Analysis"]
-    GREEN --> RA
+    GREEN --> RA["Requirements Analysis"]
+    RE --> RA
     
-    RA --> COMPLEX{Request<br/>complexity?}
+    RA --> COMPLEX{"Request complexity?"}
     
     COMPLEX -->|Simple| SKIP_US["Skip User Stories"]
     COMPLEX -->|Complex| US["User Stories"]
@@ -106,10 +106,10 @@ flowchart TD
     US --> WP["Workflow Planning"]
     SKIP_US --> WP
     
-    WP --> ASSESS{Stages<br/>needed?}
+    WP --> ASSESS{"Stages needed?"}
     
-    ASSESS --> AD["Application Design<br/>(if new components)"]
-    ASSESS --> UG["Units Generation<br/>(if multiple units)"]
+    ASSESS --> AD["Application Design"]
+    ASSESS --> UG["Units Generation"]
     
     AD --> UG
     UG --> LOOP["Per-Unit Construction"]
