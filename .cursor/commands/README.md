@@ -43,6 +43,7 @@ AI จะเริ่ม workflow ให้อัตโนมัติ
 | `/aidlc` | 🏁 Main entry - เริ่มหรือ resume workflow |
 | `/aidlc-init` | 📂 Initialize - สร้างโครงสร้าง AIDLC |
 | `/aidlc-status` | 📊 Status - แสดงสถานะปัจจุบัน |
+| `/aidlc-multi-repo` | 🔗 Multi-Repo - Configure related projects |
 
 ### 🔵 INCEPTION Commands
 

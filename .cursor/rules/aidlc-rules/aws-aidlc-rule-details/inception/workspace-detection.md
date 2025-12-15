@@ -116,6 +116,33 @@ Workspace analysis findings:
 • **Next Step**: Proceeding to **Requirements Analysis**...
 ```
 
+## Step 5: Check for Multi-Repo Configuration
+
+**Check if `aidlc-docs/related-projects.md` exists:**
+
+- **If exists**: Load related projects configuration
+- **If not exists but sibling directories detected**: Ask user if they want to configure multi-repo
+
+**For Multi-Repo Projects:**
+```markdown
+📁 Related Projects Detected
+
+I found these potential related projects:
+- ../my-frontend (appears to be Frontend - React)
+- ../my-backend (appears to be Backend - Node.js)
+- ../my-shared (appears to be Library)
+
+Would you like me to create a multi-repo configuration?
+This helps AIDLC understand cross-project dependencies.
+
+[Yes, configure] / [No, single project only]
+```
+
+**Log in branch audit file** (`aidlc-docs/audit/{branch}.md`):
+- Record related projects if configured
+
+---
+
 ## Step 6: Automatically Proceed
 
 - **No user approval required** - this is informational only

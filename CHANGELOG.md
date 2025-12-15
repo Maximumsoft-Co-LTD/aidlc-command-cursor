@@ -16,6 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.4.0] - 2025-12-15
+
+### Added
+- **Multi-Repository Support**: AIDLC can now understand context from related repos
+  - New command: `/aidlc-multi-repo` - Configure multi-repo projects
+  - New rule: `common/multi-repo-context.md` - Multi-repo management guide
+  - Updated `workspace-detection.md` to detect related projects
+  - Support for Frontend + Backend + Jobs separation
+  - Cross-project impact analysis
+  - Integration point documentation
+  - Cursor multi-root workspace integration
+
+---
+
 ## [1.3.0] - 2025-12-15
 
 ### Changed

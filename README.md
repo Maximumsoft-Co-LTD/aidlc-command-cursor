@@ -91,6 +91,7 @@ AI จะเริ่ม workflow ให้อัตโนมัติ
 | `/aidlc` | 🏁 เริ่มหรือ resume workflow |
 | `/aidlc-init` | 📂 Initialize project structure |
 | `/aidlc-status` | 📊 แสดงสถานะปัจจุบัน |
+| `/aidlc-multi-repo` | 🔗 Configure multi-repo projects |
 
 ### 🔵 INCEPTION Commands
 
@@ -217,6 +218,46 @@ AI จะตรวจจับและเริ่ม Reverse Engineering อ�
 
 ---
 
+## 🔗 Multi-Repository Projects
+
+AIDLC รองรับโปรเจกต์ที่แยก Frontend, Backend, Jobs ออกจากกัน:
+
+### Quick Setup
+
+```
+/aidlc-multi-repo
+```
+
+### Configuration
+
+สร้าง `aidlc-docs/related-projects.md`:
+
+```markdown
+# Related Projects
+
+| Project | Type | Path | Description |
+|---------|------|------|-------------|
+| my-frontend | Frontend | ../my-frontend | React SPA |
+| my-backend | Backend | ../my-backend | Node.js API |
+| my-jobs | Jobs | ../my-jobs | Background workers |
+```
+
+### How It Works
+
+1. **Requirements**: แสดง impact ต่อทุก project
+2. **Code Generation**: สร้าง cross-repo change notes
+3. **Build & Test**: รวม integration test instructions
+
+### Cursor Multi-Root Workspace (แนะนำ)
+
+เปิดทุก repo ใน workspace เดียว:
+
+1. File → Add Folder to Workspace
+2. เพิ่มทุก related project
+3. Save as `.code-workspace`
+
+---
+
 ## 👥 Team Collaboration
 
 ### Branch-Based Audit System
@@ -284,6 +325,7 @@ Project-level (`.cursor/commands/`) จะ override global (`~/.cursor/commands/
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.4 | 2025-12-15 | Added multi-repository support (frontend/backend/jobs) |
 | 1.3 | 2025-12-15 | Updated all rules/commands for branch-based audit consistency |
 | 1.2 | 2025-12-15 | Added automatic CHANGELOG management for projects |
 | 1.1 | 2025-12-15 | Added team collaboration docs, improved installation guide |
