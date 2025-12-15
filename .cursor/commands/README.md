@@ -30,41 +30,27 @@ Commands ทั้งหมดจะแสดงขึ้นมา
 /aidlc
 ```
 
-AI จะเริ่ม workflow ให้อัตโนมัติ
+AI จะเริ่ม workflow ให้อัตโนมัติ และ progress ผ่าน stages ต่างๆ ตาม context ของ request
 
 ---
 
 ## 📚 Available Commands
 
-### Main Commands
-
 | Command | Description |
 |---------|-------------|
-| `/aidlc` | 🏁 Main entry - เริ่มหรือ resume workflow |
-| `/aidlc-init` | 📂 Initialize - สร้างโครงสร้าง AIDLC |
-| `/aidlc-status` | 📊 Status - แสดงสถานะปัจจุบัน |
-| `/aidlc-multi-repo` | 🔗 Multi-Repo - Configure related projects |
+| `/aidlc` | 🏁 **Main entry** - เริ่ม, resume, หรือทำงานทุกอย่าง |
+| `/aidlc-status` | 📊 **Status** - แสดงสถานะปัจจุบัน |
+| `/aidlc-multi-repo` | 🔗 **Multi-Repo** - Configure related projects (advanced) |
 
-### 🔵 INCEPTION Commands
+### ทำไมแค่ 3 Commands?
 
-| Command | Description |
-|---------|-------------|
-| `/aidlc-reverse` | 🔍 Reverse Engineering - วิเคราะห์ code ที่มีอยู่ |
-| `/aidlc-requirements` | 📝 Requirements - วิเคราะห์ความต้องการ |
-| `/aidlc-stories` | 👤 User Stories - สร้าง user stories |
-| `/aidlc-plan` | 🗺️ Planning - วางแผน workflow |
-| `/aidlc-design` | 🏗️ Design - ออกแบบ components |
-| `/aidlc-units` | 📦 Units - แบ่ง units of work |
+เพราะ **AIDLC core-workflow** จัดการทุกอย่างอัตโนมัติ:
+- ✅ Auto-detect Greenfield/Brownfield
+- ✅ Auto-progress ผ่าน stages ที่จำเป็น
+- ✅ Auto-skip stages ที่ไม่จำเป็น
+- ✅ Resume จาก state file เมื่อ session ใหม่
 
-### 🟢 CONSTRUCTION Commands
-
-| Command | Description |
-|---------|-------------|
-| `/aidlc-functional` | ⚙️ Functional Design - ออกแบบ business logic |
-| `/aidlc-nfr` | 📐 NFR - Non-functional requirements |
-| `/aidlc-infra` | ☁️ Infrastructure - ออกแบบ infrastructure |
-| `/aidlc-code` | 💻 Code Generation - generate code |
-| `/aidlc-build` | 🔨 Build & Test - คำแนะนำ build และ test |
+ไม่จำเป็นต้องมี command แยกสำหรับแต่ละ stage เพราะ `/aidlc` + context ของ request ก็พอแล้ว!
 
 ---
 
@@ -73,19 +59,13 @@ AI จะเริ่ม workflow ให้อัตโนมัติ
 ### เริ่มโปรเจกต์ใหม่
 
 ```
-/aidlc
+/aidlc สร้าง REST API สำหรับ user authentication
 ```
 
 AI จะ:
 1. ตรวจสอบ workspace (Greenfield หรือ Brownfield)
 2. สร้างโครงสร้าง `aidlc-docs/`
-3. เริ่ม Requirements Analysis
-
-### วิเคราะห์ความต้องการพร้อม context
-
-```
-/aidlc-requirements Build a REST API for user authentication with OAuth2
-```
+3. Progress ผ่าน AIDLC stages อัตโนมัติ
 
 ### ดูสถานะปัจจุบัน
 
@@ -101,6 +81,18 @@ AI จะ:
 
 AI จะอ่าน state จาก `aidlc-docs/state/{branch}.md` และ resume จาก stage ล่าสุด
 
+### ถ้าต้องการข้ามไป stage ไหน
+
+แค่บอก AI ตรงๆ:
+
+```
+/aidlc ข้ามไป code generation เลย
+```
+
+```
+/aidlc re-run requirements analysis
+```
+
 ---
 
 ## 📁 Generated Structure
@@ -112,16 +104,6 @@ your-project/
 ├── .cursor/
 │   └── commands/          # AIDLC commands (this folder)
 ├── aidlc-docs/            # AIDLC artifacts
-│   ├── inception/
-│   │   ├── plans/
-│   │   ├── requirements/
-│   │   ├── user-stories/
-│   │   ├── reverse-engineering/
-│   │   └── application-design/
-│   ├── construction/
-│   │   ├── plans/
-│   │   ├── {unit-name}/
-│   │   └── build-and-test/
 │   ├── branches/          # Branch-based artifacts
 │   │   └── {branch}/
 │   │       ├── inception/
@@ -130,16 +112,14 @@ your-project/
 │   │   └── {branch}.md
 │   └── audit/             # Branch-based audit logs
 │       └── {branch}.md
-│       ├── audit-index.md
-│       └── {branch}.md
 └── [your source code]
 ```
 
 ---
 
-## 🔄 Workflow Phases
+## 🔄 AIDLC Workflow
 
-### Complete AIDLC Workflow
+### Complete Workflow Diagram
 
 ```mermaid
 flowchart TB
@@ -172,39 +152,6 @@ flowchart TB
     style INCEPTION fill:#3b82f6,color:#fff
     style CONSTRUCTION fill:#22c55e,color:#fff
     style OPERATIONS fill:#eab308,color:#000
-```
-
-### 🔵 INCEPTION Phase Details
-
-**Focus**: กำหนดว่าจะสร้างอะไร (WHAT)
-
-```mermaid
-flowchart LR
-    WD["🔍 Workspace Detection<br/><small>Greenfield/Brownfield</small>"] 
-    RE["📖 Reverse Engineering<br/><small>Analyze existing code</small>"]
-    RA["📝 Requirements<br/><small>Gather needs</small>"]
-    US["👤 User Stories<br/><small>Define scenarios</small>"]
-    WP["🗺️ Workflow Planning<br/><small>Plan stages</small>"]
-    AD["🏗️ Application Design<br/><small>Components</small>"]
-    UG["📦 Units Generation<br/><small>Split work</small>"]
-    
-    WD --> RE --> RA --> US --> WP --> AD --> UG
-```
-
-### 🟢 CONSTRUCTION Phase Details
-
-**Focus**: กำหนดวิธีสร้าง (HOW)
-
-```mermaid
-flowchart LR
-    FD["⚙️ Functional Design<br/><small>Business logic</small>"]
-    NFR["📐 NFR Requirements<br/><small>Performance, Security</small>"]
-    ND["🛡️ NFR Design<br/><small>Patterns</small>"]
-    ID["☁️ Infrastructure<br/><small>Deployment</small>"]
-    CG["💻 Code Generation<br/><small>Generate code</small>"]
-    BT["🔨 Build & Test<br/><small>Integration</small>"]
-    
-    FD --> NFR --> ND --> ID --> CG --> BT
 ```
 
 ### Decision Flow
@@ -256,12 +203,19 @@ cp -r .cursor/commands/* ~/.cursor/commands/
 
 ```bash
 rm -rf aidlc-docs/
-/aidlc-init
+/aidlc
 ```
 
 ### ใช้กับโปรเจกต์ที่มี code อยู่แล้ว?
 
 ได้! AI จะตรวจจับเป็น **Brownfield** และเริ่ม Reverse Engineering
+
+### ต้องการทำเฉพาะ stage ไหน?
+
+แค่บอก AI ตรงๆ ใน `/aidlc` command เลย เช่น:
+- "ทำ requirements analysis เท่านั้น"
+- "skip ไป code generation"
+- "re-run user stories"
 
 ---
 
@@ -276,9 +230,9 @@ rm -rf aidlc-docs/
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.0 | 2025-12-15 | Simplified to 3 essential commands |
 | 1.4 | 2025-12-15 | Added multi-repository support |
 | 1.3 | 2025-12-15 | Branch-based audit system |
 | 1.2 | 2025-12-15 | CHANGELOG management |
 | 1.1 | 2025-12-15 | Helper scripts, distribution guide |
 | 1.0 | 2025-12-15 | Initial release |
-

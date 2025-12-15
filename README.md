@@ -6,7 +6,7 @@
 **ใช้หลักการ AI Development Life Cycle (AIDLC)**
 
 [![Cursor](https://img.shields.io/badge/Cursor-IDE-blue)](https://cursor.com)
-[![Commands](https://img.shields.io/badge/Commands-15-green)](.cursor/commands/)
+[![Commands](https://img.shields.io/badge/Commands-3-green)](.cursor/commands/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
@@ -84,7 +84,7 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    START(["/aidlc"]) --> CHECK{aidlc-state.md<br/>exists?}
+    START(["/aidlc"]) --> CHECK{state/{branch}.md<br/>exists?}
     
     CHECK -->|No| WD["Workspace Detection"]
     CHECK -->|Yes| RESUME["Resume from<br/>last stage"]
@@ -121,48 +121,6 @@ flowchart TD
     style DONE fill:#22c55e,color:#fff
     style BROWN fill:#f97316,color:#fff
     style GREEN fill:#10b981,color:#fff
-```
-
-### Stage Artifacts Flow
-
-```mermaid
-flowchart LR
-    subgraph INPUTS["📥 User Inputs"]
-        REQ["Requirements<br/>Description"]
-        QA["Q&A<br/>Responses"]
-        APPROVE["Stage<br/>Approvals"]
-    end
-
-    subgraph AIDLC["🤖 AIDLC Processing"]
-        direction TB
-        ANALYZE["Analyze<br/>& Plan"]
-        DESIGN["Design<br/>& Document"]
-        GENERATE["Generate<br/>Code"]
-    end
-
-    subgraph OUTPUTS["📤 Generated Artifacts"]
-        direction TB
-        DOCS["📋 Documentation<br/><small>requirements.md<br/>stories.md<br/>design docs</small>"]
-        CODE["💻 Source Code<br/><small>Business logic<br/>API layers<br/>Tests</small>"]
-        AUDIT["📝 Audit Trail<br/><small>Branch-based logs<br/>Decision history</small>"]
-    end
-
-    REQ --> ANALYZE
-    QA --> ANALYZE
-    APPROVE --> DESIGN
-    
-    ANALYZE --> DESIGN
-    DESIGN --> GENERATE
-    
-    DESIGN --> DOCS
-    GENERATE --> CODE
-    ANALYZE --> AUDIT
-    DESIGN --> AUDIT
-    GENERATE --> AUDIT
-
-    style INPUTS fill:#f3f4f6,stroke:#9ca3af
-    style AIDLC fill:#6366f1,color:#fff
-    style OUTPUTS fill:#f3f4f6,stroke:#9ca3af
 ```
 
 ---
@@ -220,65 +178,42 @@ cp -r .cursor/rules/* ~/.cursor/rules/
 /aidlc
 ```
 
-AI จะเริ่ม workflow ให้อัตโนมัติ
+AI จะเริ่ม workflow ให้อัตโนมัติ และ progress ผ่าน stages ต่างๆ ตาม context ของ request
 
 ---
 
-## 📋 Available Commands (15 Commands)
-
-### Main Commands
+## 📋 Available Commands
 
 | Command | Description |
 |---------|-------------|
-| `/aidlc` | 🏁 เริ่มหรือ resume workflow |
-| `/aidlc-init` | 📂 Initialize project structure |
-| `/aidlc-status` | 📊 แสดงสถานะปัจจุบัน |
-| `/aidlc-multi-repo` | 🔗 Configure multi-repo projects |
+| `/aidlc` | 🏁 **Main entry** - เริ่ม, resume, หรือทำงานทุกอย่าง |
+| `/aidlc-status` | 📊 **Status** - แสดงสถานะปัจจุบัน |
+| `/aidlc-multi-repo` | 🔗 **Multi-Repo** - Configure related projects (advanced) |
 
-### 🔵 INCEPTION Commands
+### ทำไมแค่ 3 Commands?
 
-| Command | Description |
-|---------|-------------|
-| `/aidlc-reverse` | 🔍 Reverse engineering (brownfield) |
-| `/aidlc-requirements` | 📝 วิเคราะห์ความต้องการ |
-| `/aidlc-stories` | 👤 สร้าง user stories |
-| `/aidlc-plan` | 🗺️ วางแผน workflow |
-| `/aidlc-design` | 🏗️ ออกแบบ application |
-| `/aidlc-units` | 📦 แบ่ง units of work |
+เพราะ **AIDLC core-workflow** จัดการทุกอย่างอัตโนมัติ:
+- ✅ Auto-detect Greenfield/Brownfield
+- ✅ Auto-progress ผ่าน stages ที่จำเป็น
+- ✅ Auto-skip stages ที่ไม่จำเป็น
+- ✅ Resume จาก state file เมื่อ session ใหม่
+- ✅ Context-aware execution ตาม request
 
-### 🟢 CONSTRUCTION Commands
-
-| Command | Description |
-|---------|-------------|
-| `/aidlc-functional` | ⚙️ Functional design |
-| `/aidlc-nfr` | 📐 NFR requirements & design |
-| `/aidlc-infra` | ☁️ Infrastructure design |
-| `/aidlc-code` | 💻 Code generation |
-| `/aidlc-build` | 🔨 Build & test instructions |
+**ไม่จำเป็นต้องมี command แยกสำหรับแต่ละ stage!**
 
 ---
 
-## 📁 Distribution Contents
+## 📁 Project Structure
+
+### Distribution Contents
 
 ```
 aidlc-command-cursor/
 ├── .cursor/
-│   ├── commands/              # 📌 15 AIDLC Commands
-│   │   ├── aidlc.md           # Main entry
-│   │   ├── aidlc-init.md
-│   │   ├── aidlc-status.md
-│   │   ├── aidlc-reverse.md
-│   │   ├── aidlc-requirements.md
-│   │   ├── aidlc-stories.md
-│   │   ├── aidlc-plan.md
-│   │   ├── aidlc-design.md
-│   │   ├── aidlc-units.md
-│   │   ├── aidlc-multi-repo.md
-│   │   ├── aidlc-functional.md
-│   │   ├── aidlc-nfr.md
-│   │   ├── aidlc-infra.md
-│   │   ├── aidlc-code.md
-│   │   ├── aidlc-build.md
+│   ├── commands/              # 📌 3 AIDLC Commands
+│   │   ├── aidlc.md           # Main entry - ทำทุกอย่าง
+│   │   ├── aidlc-status.md    # Status check
+│   │   ├── aidlc-multi-repo.md # Multi-repo config
 │   │   └── README.md          # Commands documentation
 │   └── rules/
 │       └── aidlc-rules/       # 📚 AIDLC Reference Rules
@@ -297,7 +232,7 @@ aidlc-command-cursor/
 └── README.md
 ```
 
-### 📂 Generated Structure (เมื่อใช้ AIDLC)
+### Generated Structure (เมื่อใช้ AIDLC)
 
 เมื่อ run `/aidlc` จะสร้าง `aidlc-docs/` folder:
 
@@ -305,19 +240,22 @@ aidlc-command-cursor/
 your-project/
 ├── .cursor/                   # Commands & Rules
 ├── aidlc-docs/               # 📝 Generated artifacts
+│   ├── state/                # Branch-based state tracking
+│   │   ├── state-index.md
+│   │   └── {branch}.md
 │   ├── audit/                # Branch-based audit logs
 │   │   ├── audit-index.md
-│   │   ├── main.md
-│   │   └── feature-*.md
-│   ├── inception/
-│   │   ├── plans/
-│   │   ├── requirements/
-│   │   ├── user-stories/
-│   │   └── application-design/
-│   ├── construction/
-│   │   ├── {unit-name}/
-│   │   └── build-and-test/
-│   └── aidlc-state.md        # Workflow state
+│   │   └── {branch}.md
+│   └── branches/             # Branch-based artifacts
+│       └── {branch}/
+│           ├── inception/
+│           │   ├── plans/
+│           │   ├── requirements/
+│           │   ├── user-stories/
+│           │   └── application-design/
+│           └── construction/
+│               ├── {unit-name}/
+│               └── build-and-test/
 └── [your source code]
 ```
 
@@ -328,13 +266,7 @@ your-project/
 ### เริ่มโปรเจกต์ใหม่ (Greenfield)
 
 ```
-/aidlc
-```
-
-### วิเคราะห์ความต้องการพร้อม context
-
-```
-/aidlc-requirements Build a REST API for user management with JWT auth
+/aidlc สร้าง REST API สำหรับ user authentication
 ```
 
 ### ทำงานต่อจากที่หยุดไว้
@@ -343,12 +275,24 @@ your-project/
 /aidlc
 ```
 
-AI จะอ่าน state จาก `aidlc-state.md` และ resume จาก stage ล่าสุด
+AI จะอ่าน state จาก `state/{branch}.md` และ resume จาก stage ล่าสุด
 
 ### ดูสถานะปัจจุบัน
 
 ```
 /aidlc-status
+```
+
+### ข้ามไป stage ที่ต้องการ
+
+```
+/aidlc skip to code generation
+```
+
+### Re-run stage ใดๆ
+
+```
+/aidlc re-run requirements analysis
 ```
 
 ### ใช้กับโปรเจกต์ที่มี code อยู่แล้ว (Brownfield)
@@ -391,41 +335,36 @@ AIDLC รองรับโปรเจกต์ที่แยก Frontend, Bac
 2. **Code Generation**: สร้าง cross-repo change notes
 3. **Build & Test**: รวม integration test instructions
 
-### Cursor Multi-Root Workspace (แนะนำ)
-
-เปิดทุก repo ใน workspace เดียว:
-
-1. File → Add Folder to Workspace
-2. เพิ่มทุก related project
-3. Save as `.code-workspace`
-
 ---
 
 ## 👥 Team Collaboration
 
-### Branch-Based Audit System
+### Branch-Based System
 
-AIDLC ใช้ระบบ audit แยกตาม Git branch:
+AIDLC ใช้ระบบ tracking แยกตาม Git branch:
 
 ```
-aidlc-docs/audit/
-├── audit-index.md          # Master index
-├── main.md                 # Main branch audit
-├── feature-user-auth.md    # Feature branch audit
-├── bugfix-login-fix.md     # Bugfix branch audit
-└── archived/               # Merged branch audits
+aidlc-docs/
+├── state/
+│   └── {branch}.md      # State per branch
+├── audit/
+│   └── {branch}.md      # Audit per branch
+└── branches/
+    └── {branch}/        # Artifacts per branch
+        ├── inception/
+        └── construction/
 ```
 
 **Benefits**:
-- ✅ แยก audit ตาม feature branch
+- ✅ แยก state/audit/artifacts ตาม feature branch
 - ✅ ง่ายต่อการ review ใน PR
-- ✅ ทีมทำงานพร้อมกันได้
+- ✅ ทีมทำงานพร้อมกันได้โดยไม่ conflict
 - ✅ Archive อัตโนมัติเมื่อ merge
 
 ### แนะนำสำหรับทีม
 
 1. **Commit `aidlc-docs/`** ลง repo เพื่อให้ทีมเห็น artifacts ร่วมกัน
-2. **ใช้ feature branch** เพื่อให้ audit logs แยกกัน
+2. **ใช้ feature branch** เพื่อให้ logs และ artifacts แยกกัน
 3. **Review `aidlc-docs/` ใน PR** เพื่อดู requirements และ design
 
 ---
@@ -442,16 +381,19 @@ aidlc-docs/audit/
 
 ```bash
 rm -rf aidlc-docs/
-/aidlc-init
+/aidlc
 ```
 
 ### Error: "Cannot find rule file"?
 
 ตรวจสอบว่า copy ทั้ง `.cursor/commands/` และ `.cursor/rules/` แล้ว
 
-### ใช้กับ Global และ Project-level พร้อมกัน?
+### ต้องการทำเฉพาะ stage ไหน?
 
-Project-level (`.cursor/commands/`) จะ override global (`~/.cursor/commands/`)
+แค่บอก AI ตรงๆ ใน `/aidlc` command เลย เช่น:
+- "ทำ requirements analysis เท่านั้น"
+- "skip ไป code generation"
+- "re-run user stories"
 
 ---
 
@@ -468,8 +410,9 @@ Project-level (`.cursor/commands/`) จะ override global (`~/.cursor/commands/
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.0 | 2025-12-15 | **Simplified to 3 essential commands** - removed 12 stage-specific commands |
 | 1.4 | 2025-12-15 | Added multi-repository support (frontend/backend/jobs) |
-| 1.3 | 2025-12-15 | Updated all rules/commands for branch-based audit consistency |
+| 1.3 | 2025-12-15 | Branch-based state, audit, and artifacts system |
 | 1.2 | 2025-12-15 | Added automatic CHANGELOG management for projects |
 | 1.1 | 2025-12-15 | Added team collaboration docs, improved installation guide |
 | 1.0 | 2025-12-15 | Initial release |
@@ -489,4 +432,3 @@ MIT License - ใช้ได้อย่างอิสระ
 *ระบบพัฒนาซอฟต์แวร์ด้วย AI อย่างมีระบบ*
 
 </div>
-

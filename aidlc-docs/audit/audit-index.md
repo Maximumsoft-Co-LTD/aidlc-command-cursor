@@ -9,6 +9,7 @@ Master index for all branch-based audit trails.
 | Branch | Audit File | Last Updated | Status |
 |--------|------------|--------------|--------|
 | main | [main.md](./main.md) | 2025-12-15 | ✅ Complete (Initial Dev) |
+| refactor/command | [refactor-command.md](./refactor-command.md) | 2025-12-15 | ✅ Complete |
 
 ---
 
@@ -53,7 +54,7 @@ See `archived/` folder for completed branch audits.
 
 ## Quick Stats
 
-- **Total Active Branches**: 1
+- **Total Active Branches**: 2
 - **Total Archived Branches**: 0
-- **Last Updated**: 2025-12-15T15:00:00Z
+- **Last Updated**: 2025-12-15T17:55:00Z
 

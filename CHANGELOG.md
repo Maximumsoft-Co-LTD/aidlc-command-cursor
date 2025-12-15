@@ -16,6 +16,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.0.0] - 2025-12-15
+
+### Changed
+- **Command Simplification**: Reduced from 15 commands to 3 essential commands
+  - Removed 12 individual stage commands (`aidlc-init`, `aidlc-reverse`, `aidlc-requirements`, `aidlc-stories`, `aidlc-plan`, `aidlc-design`, `aidlc-units`, `aidlc-functional`, `aidlc-nfr`, `aidlc-infra`, `aidlc-code`, `aidlc-build`)
+  - Kept only: `/aidlc`, `/aidlc-status`, `/aidlc-multi-repo`
+  - Rationale: Core-workflow handles all stages automatically, individual commands are redundant
+- **core-workflow.mdc**: Added CHANGELOG update as mandatory step in Code Generation (Step 5)
+
+### Updated
+- **README.md**: Updated to reflect simplified command structure
+- **.cursor/commands/README.md**: Updated with 3-command documentation
+- **.cursor/commands/aidlc.md**: Enhanced with jump/re-run stage examples
+
+---
+
 ## [1.4.0] - 2025-12-15
 
 ### Added

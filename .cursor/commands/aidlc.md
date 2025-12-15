@@ -4,22 +4,59 @@ Main entry point for AIDLC (AI Development Life Cycle) workflow.
 
 ## What This Command Does
 
-When you use this command, the AI will:
+When you use `/aidlc`, the AI will automatically:
 
 1. **Detect Workspace State**
-   - Check for existing `aidlc-docs/state/{branch}.md`
+   - Check for existing `state/{branch}.md`
    - Scan for existing source code
    - Determine if Greenfield (new) or Brownfield (existing code)
 
 2. **For New Projects**
    - Create `aidlc-docs/` folder structure
    - Initialize `state/{branch}.md` and `audit/{branch}.md`
-   - Proceed to Requirements Analysis
+   - Progress through AIDLC stages
 
 3. **For Resume**
    - Load existing state
    - Continue from last stage
    - Show current progress
+
+4. **For Specific Requests**
+   - Analyze your request context
+   - Skip stages that aren't needed
+   - Execute relevant stages only
+
+## Why Only One Main Command?
+
+The **AIDLC core-workflow** handles everything automatically:
+- ✅ Auto-progress through stages
+- ✅ Auto-skip unnecessary stages
+- ✅ Context-aware execution
+- ✅ Branch-based state management
+
+You don't need separate commands for each stage!
+
+## Usage Examples
+
+### Start New Project
+```
+/aidlc สร้าง REST API สำหรับ user authentication
+```
+
+### Resume Work
+```
+/aidlc
+```
+
+### Jump to Specific Stage
+```
+/aidlc skip to code generation
+```
+
+### Re-run a Stage
+```
+/aidlc re-run requirements analysis
+```
 
 ## AIDLC Workflow Overview
 
@@ -36,31 +73,28 @@ When you use this command, the AI will:
 
 ## Related Commands
 
-- `/aidlc-init` - Initialize project only
-- `/aidlc-status` - View current status
-- `/aidlc-requirements` - Start requirements analysis
+| Command | Description |
+|---------|-------------|
+| `/aidlc-status` | View current status |
+| `/aidlc-multi-repo` | Configure related projects |
 
-## Audit Logging (Branch-Based)
+## Branch-Based System
 
-AIDLC uses a **branch-based audit system** for team collaboration:
+AIDLC uses **branch-based tracking** for team collaboration:
 
 ```
-aidlc-docs/audit/
-├── audit-index.md          # Master index
-├── main.md                 # Main branch audit
-├── feature-{name}.md       # Feature branch audits
-└── archived/               # Merged branch audits
+aidlc-docs/
+├── state/
+│   └── {branch}.md      # State per branch
+├── audit/
+│   └── {branch}.md      # Audit per branch
+└── branches/
+    └── {branch}/        # Artifacts per branch
+        ├── inception/
+        └── construction/
 ```
 
 ### How It Works
 - Detects current Git branch automatically
-- Creates separate audit file per branch
+- Creates separate files per branch
 - Archives when branch is merged
-
-### Logged Information
-- Timestamps (ISO 8601 format)
-- Current Git branch
-- Complete user inputs (never summarized)
-- AI actions and decisions
-- Stage transitions
-
