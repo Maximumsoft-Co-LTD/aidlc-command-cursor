@@ -6,7 +6,7 @@
 **ใช้หลักการ AI Development Life Cycle (AIDLC)**
 
 [![Cursor](https://img.shields.io/badge/Cursor-IDE-blue)](https://cursor.com)
-[![Commands](https://img.shields.io/badge/Commands-3-green)](.cursor/commands/)
+[![Commands](https://img.shields.io/badge/Commands-4-green)](.cursor/commands/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
@@ -188,9 +188,10 @@ AI จะเริ่ม workflow ให้อัตโนมัติ และ
 |---------|-------------|
 | `/aidlc` | 🏁 **Main entry** - เริ่ม, resume, หรือทำงานทุกอย่าง |
 | `/aidlc-status` | 📊 **Status** - แสดงสถานะปัจจุบัน |
+| `/aidlc-changelog` | 📝 **Changelog** - อัพเดต CHANGELOG.md เมื่อพร้อม |
 | `/aidlc-multi-repo` | 🔗 **Multi-Repo** - Configure related projects (advanced) |
 
-### ทำไมแค่ 3 Commands?
+### ทำไมแค่ 4 Commands?
 
 เพราะ **AIDLC core-workflow** จัดการทุกอย่างอัตโนมัติ:
 - ✅ Auto-detect Greenfield/Brownfield
@@ -198,6 +199,7 @@ AI จะเริ่ม workflow ให้อัตโนมัติ และ
 - ✅ Auto-skip stages ที่ไม่จำเป็น
 - ✅ Resume จาก state file เมื่อ session ใหม่
 - ✅ Context-aware execution ตาม request
+- ✅ Fix/Resume Flow สำหรับ post-completion errors
 
 **ไม่จำเป็นต้องมี command แยกสำหรับแต่ละ stage!**
 
@@ -210,25 +212,57 @@ AI จะเริ่ม workflow ให้อัตโนมัติ และ
 ```
 aidlc-command-cursor/
 ├── .cursor/
-│   ├── commands/              # 📌 3 AIDLC Commands
-│   │   ├── aidlc.md           # Main entry - ทำทุกอย่าง
-│   │   ├── aidlc-status.md    # Status check
-│   │   ├── aidlc-multi-repo.md # Multi-repo config
-│   │   └── README.md          # Commands documentation
+│   ├── commands/                 # 📌 4 AIDLC Commands
+│   │   ├── aidlc.md              # Main entry - ทำทุกอย่าง
+│   │   ├── aidlc-status.md       # Status check
+│   │   ├── aidlc-changelog.md    # Changelog management
+│   │   ├── aidlc-multi-repo.md   # Multi-repo config
+│   │   └── README.md             # Commands documentation
 │   └── rules/
-│       └── aidlc-rules/       # 📚 AIDLC Reference Rules
+│       ├── conventional-commits.mdc  # Git commit message rules
+│       └── aidlc-rules/              # 📚 AIDLC Reference Rules
 │           ├── aws-aidlc-rules/
-│           │   └── core-workflow.mdc
+│           │   └── core-workflow.mdc     # Main workflow orchestrator
 │           └── aws-aidlc-rule-details/
-│               ├── common/    # Shared utilities
-│               ├── inception/ # INCEPTION phase rules
-│               ├── construction/ # CONSTRUCTION phase rules
-│               └── operations/   # OPERATIONS phase rules (future)
-├── scripts/                   # 🛠️ Helper Scripts
-│   ├── install-global.sh      # ติดตั้งแบบ Global
-│   ├── install-to-project.sh  # ติดตั้งไปยัง project
-│   └── prepare-distribution.sh # เตรียมสำหรับแจกจ่าย
-├── DISTRIBUTION.md            # 📦 Distribution guide
+│               ├── common/               # Shared utilities (15 files)
+│               │   ├── audit-management.md
+│               │   ├── branch-artifacts.md
+│               │   ├── changelog-management.md
+│               │   ├── content-validation.md
+│               │   ├── depth-levels.md
+│               │   ├── error-handling.md
+│               │   ├── multi-repo-context.md
+│               │   ├── overconfidence-prevention.md
+│               │   ├── process-overview.md
+│               │   ├── question-format-guide.md
+│               │   ├── session-continuity.md
+│               │   ├── state-management.md
+│               │   ├── terminology.md
+│               │   ├── welcome-message.md
+│               │   └── workflow-changes.md
+│               ├── inception/            # INCEPTION phase rules (7 files)
+│               │   ├── workspace-detection.md
+│               │   ├── reverse-engineering.md
+│               │   ├── requirements-analysis.md
+│               │   ├── user-stories.md
+│               │   ├── workflow-planning.md
+│               │   ├── application-design.md
+│               │   └── units-generation.md
+│               ├── construction/         # CONSTRUCTION phase rules (6 files)
+│               │   ├── functional-design.md
+│               │   ├── nfr-requirements.md
+│               │   ├── nfr-design.md
+│               │   ├── infrastructure-design.md
+│               │   ├── code-generation.md
+│               │   └── build-and-test.md
+│               └── operations/           # OPERATIONS phase rules (1 file)
+│                   └── operations.md     # Placeholder for future
+├── scripts/                      # 🛠️ Helper Scripts
+│   ├── install-global.sh         # ติดตั้งแบบ Global
+│   ├── install-to-project.sh     # ติดตั้งไปยัง project
+│   └── prepare-distribution.sh   # เตรียมสำหรับแจกจ่าย
+├── CHANGELOG.md                  # Version history
+├── DISTRIBUTION.md               # 📦 Distribution guide
 └── README.md
 ```
 
@@ -245,16 +279,22 @@ your-project/
 │   │   └── {branch}.md
 │   ├── audit/                # Branch-based audit logs
 │   │   ├── audit-index.md
+│   │   ├── archived/         # Merged branch audits
 │   │   └── {branch}.md
 │   └── branches/             # Branch-based artifacts
+│       ├── branches-index.md
+│       ├── archived/         # Merged branch artifacts
 │       └── {branch}/
 │           ├── inception/
 │           │   ├── plans/
+│           │   ├── reverse-engineering/   # Brownfield only
 │           │   ├── requirements/
 │           │   ├── user-stories/
 │           │   └── application-design/
 │           └── construction/
+│               ├── plans/
 │               ├── {unit-name}/
+│               │   └── functional-design/
 │               └── build-and-test/
 └── [your source code]
 ```
@@ -283,6 +323,12 @@ AI จะอ่าน state จาก `state/{branch}.md` และ resume จ�
 /aidlc-status
 ```
 
+### อัพเดต CHANGELOG เมื่อพร้อม
+
+```
+/aidlc-changelog
+```
+
 ### ข้ามไป stage ที่ต้องการ
 
 ```
@@ -302,6 +348,16 @@ AI จะอ่าน state จาก `state/{branch}.md` และ resume จ�
 ```
 
 AI จะตรวจจับและเริ่ม Reverse Engineering อัตโนมัติ
+
+### Fix/Resume Flow (Post-Completion Errors)
+
+เมื่อ workflow เสร็จแล้วแต่พบ error:
+
+```
+/aidlc fix null pointer in UserService
+```
+
+AI จะ skip stages ไปแก้ไข code โดยตรง
 
 ---
 
@@ -410,7 +466,9 @@ rm -rf aidlc-docs/
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.0 | 2025-12-15 | **Simplified to 3 essential commands** - removed 12 stage-specific commands |
+| 2.2 | 2025-12-15 | Added `/aidlc-changelog` command for user-triggered CHANGELOG updates |
+| 2.1 | 2025-12-15 | Added Fix/Resume Flow for post-completion errors |
+| 2.0 | 2025-12-15 | **Simplified to 4 essential commands** - removed 12 stage-specific commands |
 | 1.4 | 2025-12-15 | Added multi-repository support (frontend/backend/jobs) |
 | 1.3 | 2025-12-15 | Branch-based state, audit, and artifacts system |
 | 1.2 | 2025-12-15 | Added automatic CHANGELOG management for projects |
