@@ -16,9 +16,16 @@ aidlc-docs/
 │   ├── {sanitized-branch-name}.md  # Audit for each feature branch
 │   └── archived/                   # Merged/completed branch audits
 │       └── {sanitized-branch-name}.md
-├── aidlc-state.md
+├── state/
+│   ├── state-index.md              # Master index of all state files
+│   ├── main.md                     # State for main/master branch
+│   ├── {sanitized-branch-name}.md  # State for each feature branch
+│   └── archived/                   # Merged/completed branch states
+│       └── {sanitized-branch-name}.md
 └── ... (other aidlc-docs)
 ```
+
+> **Note**: See `common/state-management.md` for branch-based state tracking rules.
 
 ---
 

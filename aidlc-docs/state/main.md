@@ -1,10 +1,15 @@
-# AI-DLC State Tracking
+# AI-DLC State: main
 
-## Project Information
+## Branch Info
+- **Branch**: main
+- **Base Branch**: - (primary branch)
+- **Created**: 2025-12-15T00:00:00Z
+- **Current Stage**: ✅ COMPLETE
+
+## Project Context
 - **Project Name**: Cursor Command System
 - **Project Type**: Greenfield
-- **Start Date**: 2025-12-15T00:00:00Z
-- **Current Stage**: ✅ COMPLETE
+- **Request Summary**: Create a command system for Cursor IDE using AIDLC principles
 
 ## Workspace State
 - **Existing Code**: No
@@ -80,3 +85,17 @@
   - Added usage guidelines (DO and DON'T rules)
   - Added template examples for common diagram types
   - Added "Mermaid Diagrams Only" to Key Principles in core-workflow.mdc
+
+### Enhancement 4: Branch-Based State Management
+- **Date**: 2025-12-15T17:10:00Z
+- **Request**: "ไฟล์นี้เหมือนจะต้องแยก ตาม Branch เหมือนกันนะ" (aidlc-state.md → branch-based)
+- **Scope**: Medium (Architecture restructuring)
+- **Workflow Used**: Minimal Depth (Requirements → Code Generation)
+- **Status**: ✅ Complete
+- **Changes**:
+  - Created `aidlc-docs/state/` directory structure (parallel to `audit/`)
+  - Created `common/state-management.md` rule file with full documentation
+  - Updated `core-workflow.mdc` - all `aidlc-state.md` references → `state/{branch}.md`
+  - Updated `audit-management.md` with new directory structure
+  - Migrated `aidlc-state.md` → `state/main.md`
+  - Created `state/state-index.md` for tracking all branches

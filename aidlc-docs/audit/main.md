@@ -652,3 +652,62 @@
 - core-workflow.mdc: Added Mermaid principle to Key Principles
 
 ---
+
+## ========== NEW REQUEST ==========
+**Timestamp**: 2025-12-15T17:10:00Z
+**Branch**: main
+**User Input**: "ไฟล์นี้เหมือนจะต้องแยก ตาม Branch เหมือนกันนะ" (referring to aidlc-state.md)
+**Context**: User suggests aidlc-state.md should also be branch-based like audit files
+
+---
+
+## INCEPTION - Requirements Analysis (Minimal Depth)
+**Timestamp**: 2025-12-15T17:10:01Z
+**Branch**: main
+**AI Action**: Intent Analysis
+**Intent Analysis**:
+- Request Type: Enhancement (Architecture Improvement)
+- Request Clarity: Clear
+- Scope Estimate: Update state management to be branch-based
+- Complexity Estimate: Medium (requires directory restructuring + rule updates)
+**Depth Selected**: Minimal (clear request with known pattern from audit system)
+**Context**: Requirements Analysis - Apply same branch-based pattern to state files
+
+---
+
+## CONSTRUCTION - Code Generation
+**Timestamp**: 2025-12-15T17:11:00Z
+**Branch**: main
+**AI Action**: Implemented branch-based state management
+**Changes Made**:
+1. Created new directory structure:
+   - `aidlc-docs/state/` - Branch-based state files
+   - `aidlc-docs/state/main.md` - Main branch state (migrated from aidlc-state.md)
+   - `aidlc-docs/state/state-index.md` - Master index
+   - `aidlc-docs/state/archived/` - For merged branches
+2. Created new rule file:
+   - `common/state-management.md` - Full documentation for branch-based state
+3. Updated `core-workflow.mdc`:
+   - All references to `aidlc-state.md` now point to `state/{branch}.md`
+   - Updated directory structure diagram
+4. Updated `common/audit-management.md`:
+   - Added state/ directory to structure diagram
+   - Added reference to state-management.md
+5. Removed old `aidlc-docs/aidlc-state.md` (migrated to state/main.md)
+**Context**: Code Generation - Implemented enhancement
+
+---
+
+## ========== REQUEST COMPLETE ==========
+**Timestamp**: 2025-12-15T17:12:00Z
+**Branch**: main
+**Request**: Branch-based state management (like audit system)
+**Status**: ✅ Complete
+**Changes**:
+- Created `aidlc-docs/state/` directory with branch-based structure
+- Created `common/state-management.md` rule file
+- Updated `core-workflow.mdc` with new state file references
+- Updated `audit-management.md` with new directory structure
+- Migrated `aidlc-state.md` → `state/main.md`
+
+---

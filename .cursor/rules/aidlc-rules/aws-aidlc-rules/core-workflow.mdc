@@ -36,9 +36,9 @@ alwaysApply: true
 - "Delete unused code" → **AIDLC Workflow**
 
 ### 📊 Status Checks (Check State)
-- "/aidlc-status" → Read aidlc-state.md and report
-- "What stage are we on?" → Read aidlc-state.md and report
-- "What's next?" → Read aidlc-state.md and report
+- "/aidlc-status" → Read branch state file (`state/{branch}.md`) and report
+- "What stage are we on?" → Read branch state file and report
+- "What's next?" → Read branch state file and report
 
 ---
 
@@ -46,8 +46,8 @@ alwaysApply: true
 
 **For ALL work requests, you MUST:**
 
-1. **FIRST**: Log the user's request in branch audit file
-2. **THEN**: Execute Workspace Detection (check aidlc-state.md)
+1. **FIRST**: Log the user's request in branch audit file (`audit/{branch}.md`)
+2. **THEN**: Execute Workspace Detection (check branch state file `state/{branch}.md`)
 3. **THEN**: Follow appropriate AIDLC stages based on project state
 
 **❌ FORBIDDEN**: Making code changes or file modifications without following AIDLC workflow
@@ -61,7 +61,7 @@ alwaysApply: true
 1. **MANDATORY**: Log initial user request in branch audit file with complete raw input
 2. Load all steps from `inception/workspace-detection.md`
 3. Execute workspace detection:
-   - Check for existing aidlc-state.md (resume if found)
+   - Check for existing branch state file `state/{branch}.md` (resume if found)
    - Scan workspace for existing code
    - Determine if brownfield or greenfield
    - Check for existing reverse engineering artifacts
@@ -412,7 +412,7 @@ The Operations stage will eventually include:
 - **Adaptive Execution**: Only execute stages that add value
 - **Transparent Planning**: Always show execution plan before starting
 - **User Control**: User can request stage inclusion/exclusion
-- **Progress Tracking**: Update aidlc-state.md with executed and skipped stages
+- **Progress Tracking**: Update branch state file (`state/{branch}.md`) with executed and skipped stages
 - **Complete Audit Trail**: Log ALL user inputs and AI responses in branch audit file with timestamps
   - **CRITICAL**: Capture user's COMPLETE RAW INPUT exactly as provided
   - **CRITICAL**: Never summarize or paraphrase user input in audit log
@@ -434,7 +434,7 @@ The Operations stage will eventually include:
 
 ### Two-Level Checkbox Tracking System
 - **Plan-Level**: Track detailed execution progress within each stage
-- **Stage-Level**: Track overall workflow progress in aidlc-state.md
+- **Stage-Level**: Track overall workflow progress in branch state file (`state/{branch}.md`)
 - **Update immediately**: All progress updates in SAME interaction where work is completed
 
 ## Prompts Logging Requirements - Branch-Based Audit System
@@ -568,5 +568,9 @@ aidlc-docs/
 │       └── build-and-test-summary.md
 ├── operations/                 # 🟡 OPERATIONS PHASE artifacts (placeholder)
 │   └── [Future: deployment and monitoring artifacts]
-└── aidlc-state.md             # Dynamic state tracking
+└── state/                      # 📊 Branch-based state tracking
+    ├── state-index.md          # Master index of all state files
+    ├── main.md                 # State for main/master branch
+    ├── {branch-name}.md        # State for each feature branch
+    └── archived/               # Merged/completed branch states
 ```
