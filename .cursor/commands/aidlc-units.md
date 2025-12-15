@@ -26,7 +26,7 @@ A **Unit of Work** is a logical grouping for development:
 ## Output Files
 
 ```
-aidlc-docs/inception/application-design/
+aidlc-docs/branches/{branch}/inception/application-design/
 ├── unit-of-work.md
 ├── unit-of-work-dependency.md
 └── unit-of-work-story-map.md

@@ -27,9 +27,9 @@ This stage decomposes the system into manageable units of work through two integ
 
 ## Step 2: Include Mandatory Unit Artifacts in Plan
 **ALWAYS** include these mandatory artifacts in the unit plan:
-- [ ] Generate `aidlc-docs/inception/application-design/unit-of-work.md` with unit definitions and responsibilities
-- [ ] Generate `aidlc-docs/inception/application-design/unit-of-work-dependency.md` with dependency matrix
-- [ ] Generate `aidlc-docs/inception/application-design/unit-of-work-story-map.md` mapping stories to units
+- [ ] Generate `aidlc-docs/branches/{branch}/inception/application-design/unit-of-work.md` with unit definitions and responsibilities
+- [ ] Generate `aidlc-docs/branches/{branch}/inception/application-design/unit-of-work-dependency.md` with dependency matrix
+- [ ] Generate `aidlc-docs/branches/{branch}/inception/application-design/unit-of-work-story-map.md` mapping stories to units
 - [ ] Validate unit boundaries and dependencies
 - [ ] Ensure all stories are assigned to units
 
@@ -48,7 +48,7 @@ This stage decomposes the system into manageable units of work through two integ
 - **Business Domain** - Only if domain boundaries or bounded contexts are unclear
 
 ## Step 4: Store UOW Plan
-- Save as `aidlc-docs/inception/plans/unit-of-work-plan.md`
+- Save as `aidlc-docs/branches/{branch}/inception/plans/unit-of-work-plan.md`
 - Include all [Answer]: tags for user input
 - Ensure plan covers all aspects of system decomposition
 
@@ -81,7 +81,7 @@ If the analysis in step 7 reveals ANY ambiguous answers, you MUST:
   - "You mentioned 'depends on complexity' - how do you define complexity levels?"
 
 ## Step 9: Request Approval
-- Ask: "**Unit of work plan complete. Review the plan in aidlc-docs/inception/plans/unit-of-work-plan.md. Ready to proceed to generation?**"
+- Ask: "**Unit of work plan complete. Review the plan in aidlc-docs/branches/{branch}/inception/plans/unit-of-work-plan.md. Ready to proceed to generation?**"
 - DO NOT PROCEED until user confirms
 
 ## Step 10: Log Approval
@@ -90,7 +90,7 @@ If the analysis in step 7 reveals ANY ambiguous answers, you MUST:
 - Include complete approval prompt text
 
 ## Step 11: Update Progress
-- Mark Units Planning complete in aidlc-state.md
+- Mark Units Planning complete in `aidlc-docs/state/{branch}.md`
 - Update the "Current Status" section
 - Prepare for transition to Units Generation
 
@@ -99,7 +99,7 @@ If the analysis in step 7 reveals ANY ambiguous answers, you MUST:
 # PART 2: GENERATION
 
 ## Step 12: Load Unit of Work Plan
-- [ ] Read the complete plan from `aidlc-docs/inception/plans/unit-of-work-plan.md`
+- [ ] Read the complete plan from `aidlc-docs/branches/{branch}/inception/plans/unit-of-work-plan.md`
 - [ ] Identify the next uncompleted step (first [ ] checkbox)
 - [ ] Load the context and requirements for that step
 
@@ -111,7 +111,7 @@ If the analysis in step 7 reveals ANY ambiguous answers, you MUST:
 
 ## Step 14: Update Progress
 - [ ] Mark the completed step as [x] in the unit of work plan
-- [ ] Update `aidlc-docs/aidlc-state.md` current status
+- [ ] Update `aidlc-docs/state/{branch}.md` current status
 - [ ] Save all generated artifacts
 
 ## Step 15: Continue or Complete
@@ -127,7 +127,7 @@ If the analysis in step 7 reveals ANY ambiguous answers, you MUST:
 [AI-generated summary of units and decomposition created in bullet points]
 
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the units generation artifacts at: `aidlc-docs/inception/application-design/`
+> Please examine the units generation artifacts at: `aidlc-docs/branches/{branch}/inception/application-design/`
 
 > **🚀 <u>**WHAT'S NEXT?**</u>**
 >
@@ -148,7 +148,7 @@ If the analysis in step 7 reveals ANY ambiguous answers, you MUST:
 - Mark the approval status clearly
 
 ## Step 19: Update Progress
-- Mark Units Generation stage complete in `aidlc-docs/aidlc-state.md`
+- Mark Units Generation stage complete in `aidlc-docs/state/{branch}.md`
 - Update the "Current Status" section
 - Prepare for transition to CONSTRUCTION PHASE
 

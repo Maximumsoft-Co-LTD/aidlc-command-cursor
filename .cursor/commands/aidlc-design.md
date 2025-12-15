@@ -22,7 +22,7 @@ Design application components and services.
 ## Output Files
 
 ```
-aidlc-docs/inception/application-design/
+aidlc-docs/branches/{branch}/inception/application-design/
 ├── components.md
 ├── component-methods.md
 ├── services.md

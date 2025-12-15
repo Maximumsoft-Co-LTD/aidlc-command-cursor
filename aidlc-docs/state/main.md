@@ -99,3 +99,32 @@
   - Updated `audit-management.md` with new directory structure
   - Migrated `aidlc-state.md` → `state/main.md`
   - Created `state/state-index.md` for tracking all branches
+
+### Enhancement 5: Branch-Based Artifacts (Parallel Work)
+- **Date**: 2025-12-15T17:20:00Z
+- **Request**: "Option A: Parallel Branch Work (แนะนำสำหรับทีม)"
+- **Scope**: Medium (Architecture restructuring)
+- **Workflow Used**: Minimal Depth (Requirements → Code Generation)
+- **Status**: ✅ Complete
+- **Changes**:
+  - Created `aidlc-docs/branches/` directory structure
+  - Moved `inception/` and `construction/` to `branches/main/`
+  - Created `branches/branches-index.md` master index
+  - Created `branches/archived/` for merged branches
+  - Created `common/branch-artifacts.md` rule file
+  - Updated `core-workflow.mdc` directory structure
+  - Deleted legacy `audit.md` migration notice file
+
+### Enhancement 6: Branch-Based Path Consistency
+- **Date**: 2025-12-15T17:35:00Z
+- **Request**: "ตรวจสอบ rule ทั้งหมดและแก้ไขให้ถูกต้อง ตามหลัก branch based"
+- **Scope**: Medium (Multiple file updates)
+- **Workflow Used**: Minimal Depth (Requirements → Code Generation)
+- **Status**: ✅ Complete
+- **Changes**:
+  - Updated 17 rule files (7 inception + 6 construction + 4 common)
+  - Updated 11 command files
+  - All `aidlc-state.md` → `state/{branch}.md`
+  - All `aidlc-docs/inception/` → `branches/{branch}/inception/`
+  - All `aidlc-docs/construction/` → `branches/{branch}/construction/`
+  - Common files fixed: error-handling.md, workflow-changes.md, session-continuity.md, terminology.md

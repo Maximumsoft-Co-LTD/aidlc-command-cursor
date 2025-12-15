@@ -7,13 +7,13 @@ Main entry point for AIDLC (AI Development Life Cycle) workflow.
 When you use this command, the AI will:
 
 1. **Detect Workspace State**
-   - Check for existing `aidlc-docs/aidlc-state.md`
+   - Check for existing `aidlc-docs/state/{branch}.md`
    - Scan for existing source code
    - Determine if Greenfield (new) or Brownfield (existing code)
 
 2. **For New Projects**
    - Create `aidlc-docs/` folder structure
-   - Initialize `aidlc-state.md` and branch audit file
+   - Initialize `state/{branch}.md` and `audit/{branch}.md`
    - Proceed to Requirements Analysis
 
 3. **For Resume**

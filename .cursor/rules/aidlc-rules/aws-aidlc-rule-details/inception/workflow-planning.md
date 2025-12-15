@@ -222,7 +222,7 @@ linkStyle default stroke:#333,stroke-width:2px
 
 ## Step 7: Create Execution Plan Document
 
-Create `aidlc-docs/inception/plans/execution-plan.md`:
+Create `aidlc-docs/branches/{branch}/inception/plans/execution-plan.md`:
 
 ```markdown
 # Execution Plan
@@ -348,7 +348,7 @@ flowchart TD
 
 ## Step 8: Initialize State Tracking
 
-Update `aidlc-docs/aidlc-state.md`:
+Update `aidlc-docs/state/{branch}.md`:
 
 ```markdown
 # AI-DLC State Tracking
@@ -445,7 +445,7 @@ I recommend skipping [Y] stages:
 **Estimated Timeline**: [Duration]
 
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the execution plan at: `aidlc-docs/inception/plans/execution-plan.md`
+> Please examine the execution plan at: `aidlc-docs/branches/{branch}/inception/plans/execution-plan.md`
 
 > **🚀 <u>**WHAT'S NEXT?**</u>**
 >

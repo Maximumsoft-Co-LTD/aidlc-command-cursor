@@ -99,7 +99,7 @@ AI จะ:
 /aidlc
 ```
 
-AI จะอ่าน state จาก `aidlc-docs/aidlc-state.md` และ resume จาก stage ล่าสุด
+AI จะอ่าน state จาก `aidlc-docs/state/{branch}.md` และ resume จาก stage ล่าสุด
 
 ---
 
@@ -122,9 +122,14 @@ your-project/
 │   │   ├── plans/
 │   │   ├── {unit-name}/
 │   │   └── build-and-test/
-│   ├── operations/
-│   ├── aidlc-state.md     # Current state
+│   ├── branches/          # Branch-based artifacts
+│   │   └── {branch}/
+│   │       ├── inception/
+│   │       └── construction/
+│   ├── state/             # Branch-based state tracking
+│   │   └── {branch}.md
 │   └── audit/             # Branch-based audit logs
+│       └── {branch}.md
 │       ├── audit-index.md
 │       └── {branch}.md
 └── [your source code]

@@ -4,7 +4,7 @@
 
 ## Step 1: Check for Existing AI-DLC Project
 
-Check if `aidlc-docs/aidlc-state.md` exists:
+Detect current Git branch and check if `aidlc-docs/state/{branch}.md` exists:
 - **If exists**: Resume from last phase (load context from previous phases)
 - **If not exists**: Continue with new project assessment
 
@@ -32,21 +32,26 @@ Check if `aidlc-docs/aidlc-state.md` exists:
 
 **IF workspace has existing code**:
 - Set flag: `brownfield = true`
-- Check for existing reverse engineering artifacts in `aidlc-docs/inception/reverse-engineering/`
+- Check for existing reverse engineering artifacts in `aidlc-docs/branches/{branch}/inception/reverse-engineering/`
 - **IF reverse engineering artifacts exist**: Load them, skip to Requirements Analysis
 - **IF no reverse engineering artifacts**: Next phase is Reverse Engineering
 
 ## Step 4: Create Initial State File
 
-Create `aidlc-docs/aidlc-state.md`:
+Detect current Git branch and create `aidlc-docs/state/{branch}.md`:
 
 ```markdown
-# AI-DLC State Tracking
+# AI-DLC State: {branch-name}
 
-## Project Information
+## Branch Info
+- **Branch**: {original-branch-name}
+- **Base Branch**: {base-branch, e.g., main}
+- **Created**: {ISO timestamp}
+- **Current Stage**: 🔵 INCEPTION - Workspace Detection
+
+## Project Context
 - **Project Type**: [Greenfield/Brownfield]
-- **Start Date**: [ISO timestamp]
-- **Current Stage**: INCEPTION - Workspace Detection
+- **Request Summary**: [Brief description of the feature/fix]
 
 ## Workspace State
 - **Existing Code**: [Yes/No]
@@ -55,6 +60,8 @@ Create `aidlc-docs/aidlc-state.md`:
 ## Stage Progress
 [Will be populated as workflow progresses]
 ```
+
+Also update `aidlc-docs/state/state-index.md` with new branch entry.
 
 ## Step 4.1: Create or Verify CHANGELOG.md
 

@@ -5,7 +5,8 @@ Display current AIDLC workflow status and progress.
 ## What This Command Does
 
 1. **Load State**
-   - Read `aidlc-docs/aidlc-state.md`
+   - Detect current Git branch
+   - Read `aidlc-docs/state/{branch}.md`
    - If not found → Prompt to run `/aidlc-init`
 
 2. **Calculate Progress**

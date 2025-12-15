@@ -32,7 +32,7 @@ Generate user stories and personas from requirements.
 ## Output Files
 
 ```
-aidlc-docs/inception/user-stories/
+aidlc-docs/branches/{branch}/inception/user-stories/
 ├── personas.md
 └── stories.md
 ```

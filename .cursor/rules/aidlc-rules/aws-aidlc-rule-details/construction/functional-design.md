@@ -23,8 +23,8 @@ Design detailed business logic for the unit, technology-agnostic and focused pur
 ## Steps to Execute
 
 ### Step 1: Analyze Unit Context
-- Read unit definition from `aidlc-docs/inception/application-design/unit-of-work.md`
-- Read assigned stories from `aidlc-docs/inception/application-design/unit-of-work-story-map.md`
+- Read unit definition from `aidlc-docs/branches/{branch}/inception/application-design/unit-of-work.md`
+- Read assigned stories from `aidlc-docs/branches/{branch}/inception/application-design/unit-of-work-story-map.md`
 - Understand unit responsibilities and boundaries
 
 ### Step 2: Create Functional Design Plan
@@ -52,7 +52,7 @@ Design detailed business logic for the unit, technology-agnostic and focused pur
 - **Business Scenarios** - Ask about edge cases, alternative flows, and complex business situations
 
 ### Step 4: Store Plan
-- Save as `aidlc-docs/construction/plans/{unit-name}-functional-design-plan.md`
+- Save as `aidlc-docs/branches/{branch}/construction/plans/{unit-name}-functional-design-plan.md`
 - Include all [Answer]: tags for user input
 
 ### Step 5: Collect and Analyze Answers
@@ -64,9 +64,9 @@ Design detailed business logic for the unit, technology-agnostic and focused pur
 - **Do not proceed until ALL ambiguities are resolved**
 
 ### Step 6: Generate Functional Design Artifacts
-- Create `aidlc-docs/construction/{unit-name}/functional-design/business-logic-model.md`
-- Create `aidlc-docs/construction/{unit-name}/functional-design/business-rules.md`
-- Create `aidlc-docs/construction/{unit-name}/functional-design/domain-entities.md`
+- Create `aidlc-docs/branches/{branch}/construction/{unit-name}/functional-design/business-logic-model.md`
+- Create `aidlc-docs/branches/{branch}/construction/{unit-name}/functional-design/business-rules.md`
+- Create `aidlc-docs/branches/{branch}/construction/{unit-name}/functional-design/domain-entities.md`
 
 ### Step 7: Present Completion Message
 - Present completion message in this structure:
@@ -87,7 +87,7 @@ Design detailed business logic for the unit, technology-agnostic and focused pur
 
 ```markdown
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the functional design artifacts at: `aidlc-docs/construction/[unit-name]/functional-design/`
+> Please examine the functional design artifacts at: `aidlc-docs/branches/{branch}/construction/{unit-name}/functional-design/`
 
 
 
@@ -109,4 +109,4 @@ Design detailed business logic for the unit, technology-agnostic and focused pur
 ### Step 9: Record Approval and Update Progress
 - Log approval in branch audit file (`aidlc-docs/audit/{branch}.md`) with timestamp
 - Record the user's approval response with timestamp
-- Mark Functional Design stage complete in aidlc-state.md
+- Mark Functional Design stage complete in `aidlc-docs/state/{branch}.md`

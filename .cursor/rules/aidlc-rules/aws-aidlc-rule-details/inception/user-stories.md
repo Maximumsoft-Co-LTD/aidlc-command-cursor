@@ -81,7 +81,7 @@ For medium priority cases, execute user stories if ANY of these apply:
    - Confirm this isn't a simple case that should be skipped
 
 3. **Document Assessment Decision**:
-   - Create `aidlc-docs/inception/plans/user-stories-assessment.md`
+   - Create `aidlc-docs/branches/{branch}/inception/plans/user-stories-assessment.md`
    - Include reasoning for why user stories are valuable for this request
    - Reference specific assessment criteria that apply
    - Explain expected benefits (clarity, testing, stakeholder alignment)
@@ -162,7 +162,7 @@ For medium priority cases, execute user stories if ANY of these apply:
 - Allow for hybrid approaches with clear decision criteria
 
 ## Step 6: Store Story Plan
-- Save the complete story plan with embedded questions in `aidlc-docs/inception/plans/` directory
+- Save the complete story plan with embedded questions in `aidlc-docs/branches/{branch}/inception/plans/` directory
 - Filename: `story-generation-plan.md`
 - Include all [Answer]: tags for user input
 - Ensure plan is comprehensive and covers all story development aspects
@@ -228,7 +228,7 @@ If the analysis in step 9 reveals ANY ambiguous answers, you MUST:
 # PART 2: GENERATION
 
 ## Step 15: Load Story Generation Plan
-- [ ] Read the complete story plan from `aidlc-docs/inception/plans/story-generation-plan.md`
+- [ ] Read the complete story plan from `aidlc-docs/branches/{branch}/inception/plans/story-generation-plan.md`
 - [ ] Identify the next uncompleted step (first [ ] checkbox)
 - [ ] Load the context and requirements for that step
 
@@ -240,7 +240,7 @@ If the analysis in step 9 reveals ANY ambiguous answers, you MUST:
 
 ## Step 17: Update Progress
 - [ ] Mark the completed step as [x] in the story generation plan
-- [ ] Update `aidlc-docs/aidlc-state.md` current status
+- [ ] Update `aidlc-docs/state/{branch}.md` current status
 - [ ] Save all generated artifacts
 
 ## Step 18: Continue or Complete Generation
@@ -272,7 +272,7 @@ If the analysis in step 9 reveals ANY ambiguous answers, you MUST:
 
 ```markdown
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the user stories and personas at: `aidlc-docs/inception/user-stories/stories.md` and `aidlc-docs/inception/user-stories/personas.md`
+> Please examine the user stories and personas at: `aidlc-docs/branches/{branch}/inception/user-stories/stories.md` and `aidlc-docs/branches/{branch}/inception/user-stories/personas.md`
 
 
 
@@ -297,7 +297,7 @@ If the analysis in step 9 reveals ANY ambiguous answers, you MUST:
 - Mark the approval status clearly
 
 ## Step 23: Update Progress
-- Mark User Stories stage complete in `aidlc-state.md`
+- Mark User Stories stage complete in `aidlc-docs/state/{branch}.md`
 - Update the "Current Status" section
 - Prepare for transition to next stage
 

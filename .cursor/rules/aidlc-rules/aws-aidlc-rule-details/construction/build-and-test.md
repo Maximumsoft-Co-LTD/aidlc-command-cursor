@@ -23,7 +23,7 @@ Analyze the project to determine appropriate testing strategy:
 
 ## Step 2: Generate Build Instructions
 
-Create `aidlc-docs/construction/build-and-test/build-instructions.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/build-instructions.md`:
 
 ```markdown
 # Build Instructions
@@ -74,7 +74,7 @@ Create `aidlc-docs/construction/build-and-test/build-instructions.md`:
 
 ## Step 3: Generate Unit Test Execution Instructions
 
-Create `aidlc-docs/construction/build-and-test/unit-test-instructions.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/unit-test-instructions.md`:
 
 ```markdown
 # Unit Test Execution
@@ -104,7 +104,7 @@ If tests fail:
 
 ## Step 4: Generate Integration Test Instructions
 
-Create `aidlc-docs/construction/build-and-test/integration-test-instructions.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/integration-test-instructions.md`:
 
 ```markdown
 # Integration Test Instructions
@@ -162,7 +162,7 @@ Test interactions between units/services to ensure they work together correctly.
 
 ## Step 5: Generate Performance Test Instructions (If Applicable)
 
-Create `aidlc-docs/construction/build-and-test/performance-test-instructions.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/performance-test-instructions.md`:
 
 ```markdown
 # Performance Test Instructions
@@ -225,20 +225,20 @@ If performance doesn't meet requirements:
 Based on project requirements, generate additional test instruction files:
 
 ### Contract Tests (For Microservices)
-Create `aidlc-docs/construction/build-and-test/contract-test-instructions.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/contract-test-instructions.md`:
 - API contract validation between services
 - Consumer-driven contract testing
 - Schema validation
 
 ### Security Tests
-Create `aidlc-docs/construction/build-and-test/security-test-instructions.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/security-test-instructions.md`:
 - Vulnerability scanning
 - Dependency security checks
 - Authentication/authorization testing
 - Input validation testing
 
 ### End-to-End Tests
-Create `aidlc-docs/construction/build-and-test/e2e-test-instructions.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/e2e-test-instructions.md`:
 - Complete user workflow testing
 - Cross-service scenarios
 - UI testing (if applicable)
@@ -247,7 +247,7 @@ Create `aidlc-docs/construction/build-and-test/e2e-test-instructions.md`:
 
 ## Step 7: Generate Test Summary
 
-Create `aidlc-docs/construction/build-and-test/build-and-test-summary.md`:
+Create `aidlc-docs/branches/{branch}/construction/build-and-test/build-and-test-summary.md`:
 
 ```markdown
 # Build and Test Summary
@@ -362,7 +362,7 @@ After (if user chooses version 1.0.0):
 
 ## Step 9: Update State Tracking
 
-Update `aidlc-docs/aidlc-state.md`:
+Update `aidlc-docs/state/{branch}.md`:
 - Mark Build and Test stage as complete
 - Update current status
 - Record CHANGELOG version if finalized
@@ -392,7 +392,7 @@ Present comprehensive message:
 5. ✅ [additional test files as needed]
 6. ✅ build-and-test-summary.md
 
-Review the summary in aidlc-docs/construction/build-and-test/build-and-test-summary.md
+Review the summary in aidlc-docs/branches/{branch}/construction/build-and-test/build-and-test-summary.md
 
 **Ready to proceed to Operations stage for deployment planning?""
 ```

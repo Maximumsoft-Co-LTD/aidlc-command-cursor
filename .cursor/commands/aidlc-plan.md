@@ -28,7 +28,7 @@ Create execution plan for the AIDLC workflow.
 ## Output Files
 
 ```
-aidlc-docs/inception/plans/
+aidlc-docs/branches/{branch}/inception/plans/
 ├── workflow-planning.md
 └── execution-plan.md
 ```

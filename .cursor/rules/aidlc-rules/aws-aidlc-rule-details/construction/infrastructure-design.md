@@ -11,8 +11,8 @@ Map logical software components to actual infrastructure choices for deployment 
 ## Steps to Execute
 
 ### Step 1: Analyze Design Artifacts
-- Read functional design from `aidlc-docs/construction/{unit-name}/functional-design/`
-- Read NFR design from `aidlc-docs/construction/{unit-name}/nfr-design/` (if exists)
+- Read functional design from `aidlc-docs/branches/{branch}/construction/{unit-name}/functional-design/`
+- Read NFR design from `aidlc-docs/branches/{branch}/construction/{unit-name}/nfr-design/` (if exists)
 - Identify logical components needing infrastructure
 
 ### Step 2: Create Infrastructure Design Plan
@@ -37,7 +37,7 @@ Map logical software components to actual infrastructure choices for deployment 
 - **Shared Infrastructure** - Only if infrastructure sharing strategy is ambiguous
 
 ### Step 4: Store Plan
-- Save as `aidlc-docs/construction/plans/{unit-name}-infrastructure-design-plan.md`
+- Save as `aidlc-docs/branches/{branch}/construction/plans/{unit-name}-infrastructure-design-plan.md`
 - Include all [Answer]: tags for user input
 
 ### Step 5: Collect and Analyze Answers
@@ -46,9 +46,9 @@ Map logical software components to actual infrastructure choices for deployment 
 - Add follow-up questions if needed
 
 ### Step 6: Generate Infrastructure Design Artifacts
-- Create `aidlc-docs/construction/{unit-name}/infrastructure-design/infrastructure-design.md`
-- Create `aidlc-docs/construction/{unit-name}/infrastructure-design/deployment-architecture.md`
-- If shared infrastructure: Create `aidlc-docs/construction/shared-infrastructure.md`
+- Create `aidlc-docs/branches/{branch}/construction/{unit-name}/infrastructure-design/infrastructure-design.md`
+- Create `aidlc-docs/branches/{branch}/construction/{unit-name}/infrastructure-design/deployment-architecture.md`
+- If shared infrastructure: Create `aidlc-docs/branches/{branch}/construction/shared-infrastructure.md`
 
 ### Step 7: Present Completion Message
 - Present completion message in this structure:
@@ -69,7 +69,7 @@ Map logical software components to actual infrastructure choices for deployment 
 
 ```markdown
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the infrastructure design at: `aidlc-docs/construction/[unit-name]/infrastructure-design/`
+> Please examine the infrastructure design at: `aidlc-docs/branches/{branch}/construction/{unit-name}/infrastructure-design/`
 
 
 
@@ -91,4 +91,4 @@ Map logical software components to actual infrastructure choices for deployment 
 ### Step 9: Record Approval and Update Progress
 - Log approval in branch audit file (`aidlc-docs/audit/{branch}.md`) with timestamp
 - Record the user's approval response with timestamp
-- Mark Infrastructure Design stage complete in aidlc-state.md
+- Mark Infrastructure Design stage complete in `aidlc-docs/state/{branch}.md`

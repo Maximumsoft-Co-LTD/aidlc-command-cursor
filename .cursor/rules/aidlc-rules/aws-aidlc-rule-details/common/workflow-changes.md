@@ -18,7 +18,7 @@ Users may request changes to the execution plan or phase execution during the wo
 1. **Confirm Request**: "You want to add User Stories stage. This will create user stories and personas. Confirm?"
 2. **Check Dependencies**: Verify all prerequisite phases are complete
 3. **Update Execution Plan**: Add phase to `execution-plan.md` with rationale
-4. **Update State**: Mark phase as "PENDING" in `aidlc-state.md`
+4. **Update State**: Mark phase as "PENDING" in `state/{branch}.md`
 5. **Execute Phase**: Follow normal phase execution process
 6. **Log Change**: Document in branch audit file (`aidlc-docs/audit/{branch}.md`) with timestamp and reason
 
@@ -40,7 +40,7 @@ Users may request changes to the execution plan or phase execution during the wo
 2. **Warn About Impact**: Explain what will be missing and potential consequences
 3. **Get Explicit Confirmation**: User must explicitly confirm understanding of impact
 4. **Update Execution Plan**: Mark phase as "SKIPPED" with reason
-5. **Update State**: Mark phase as "SKIPPED" in `aidlc-state.md`
+5. **Update State**: Mark phase as "SKIPPED" in `state/{branch}.md`
 6. **Adjust Later Phases**: Note that later phases may need manual setup
 7. **Log Change**: Document in branch audit file (`aidlc-docs/audit/{branch}.md`) with timestamp and reason
 
@@ -65,7 +65,7 @@ Users may request changes to the execution plan or phase execution during the wo
 3. **If Restart Chosen**:
    - Archive existing artifacts: `{artifact}.backup.{timestamp}`
    - Reset stage checkboxes in plan file
-   - Mark stage as "IN PROGRESS" in `aidlc-state.md`
+   - Mark stage as "IN PROGRESS" in `state/{branch}.md`
    - Clear stage completion status
    - Re-execute from beginning
 4. **Log Change**: Document reason for restart and what will change
@@ -89,7 +89,7 @@ Users may request changes to the execution plan or phase execution during the wo
 3. **Get Explicit Confirmation**: User must understand full impact
 4. **If Confirmed**:
    - Archive all affected artifacts
-   - Reset all affected stages in `aidlc-state.md`
+   - Reset all affected stages in `state/{branch}.md`
    - Clear checkboxes in all affected plan files
    - Return to the stage to restart
    - Re-execute from that point forward
@@ -132,12 +132,12 @@ Users may request changes to the execution plan or phase execution during the wo
 **Handling**:
 1. **Complete Current Step**: Finish the current step in progress if possible
 2. **Update Checkboxes**: Mark all completed steps with [x]
-3. **Update State**: Ensure `aidlc-state.md` reflects current status
+3. **Update State**: Ensure `state/{branch}.md` reflects current status
 4. **Log Pause**: Document pause point in branch audit file (`aidlc-docs/audit/{branch}.md`)
 5. **Provide Resume Instructions**: "When you return, I'll detect your existing project and offer to continue from: [current phase, current step]"
 
 **On Resume**:
-1. **Detect Existing Project**: Check for `aidlc-state.md`
+1. **Detect Existing Project**: Check for `state/{branch}.md`
 2. **Load Context**: Read all artifacts from completed stages
 3. **Show Status**: Display current stage and next step
 4. **Offer Options**: Continue where left off or review previous work
@@ -209,7 +209,7 @@ Users may request changes to the execution plan or phase execution during the wo
 ### During Changes
 
 1. **Archive Existing Work**: Always backup before making destructive changes
-2. **Update All Tracking**: Keep `aidlc-state.md`, plan files, and branch audit file in sync
+2. **Update All Tracking**: Keep `state/{branch}.md`, plan files, and branch audit file in sync
 3. **Communicate Progress**: Keep user informed about what's happening
 4. **Validate Changes**: Ensure changes are consistent across all artifacts
 5. **Test Continuity**: Verify workflow can continue smoothly after changes

@@ -20,7 +20,7 @@ Application Design focuses on:
 ## Step-by-Step Execution
 
 ### 1. Analyze Context
-- Read `aidlc-docs/inception/requirements/requirements.md` and `aidlc-docs/inception/user-stories/stories.md`
+- Read `aidlc-docs/branches/{branch}/inception/requirements/requirements.md` and `aidlc-docs/branches/{branch}/inception/user-stories/stories.md`
 - Identify key business capabilities and functional areas
 - Determine design scope and complexity
 
@@ -52,7 +52,7 @@ Application Design focuses on:
 - **Design Patterns** - Only if architectural style or pattern choice needs user input
 
 ### 5. Store Application Design Plan
-- Save as `aidlc-docs/inception/plans/application-design-plan.md`
+- Save as `aidlc-docs/branches/{branch}/inception/plans/application-design-plan.md`
 - Include all [Answer]: tags for user input
 - Ensure plan covers all design aspects
 
@@ -86,20 +86,20 @@ If the analysis in step 8 reveals ANY ambiguous answers, you MUST:
 
 ### 10. Generate Application Design Artifacts
 - Execute the approved plan to generate design artifacts
-- Create `aidlc-docs/inception/application-design/components.md` with:
+- Create `aidlc-docs/branches/{branch}/inception/application-design/components.md` with:
   - Component name and purpose
   - Component responsibilities
   - Component interfaces
-- Create `aidlc-docs/inception/application-design/component-methods.md` with:
+- Create `aidlc-docs/branches/{branch}/inception/application-design/component-methods.md` with:
   - Method signatures for each component
   - High-level purpose of each method
   - Input/output types
   - Note: Detailed business rules will be defined in Functional Design (per-unit, CONSTRUCTION phase)
-- Create `aidlc-docs/inception/application-design/services.md` with:
+- Create `aidlc-docs/branches/{branch}/inception/application-design/services.md` with:
   - Service definitions
   - Service responsibilities
   - Service interactions and orchestration
-- Create `aidlc-docs/inception/application-design/component-dependency.md` with:
+- Create `aidlc-docs/branches/{branch}/inception/application-design/component-dependency.md` with:
   - Dependency matrix showing relationships
   - Communication patterns between components
   - Data flow diagrams
@@ -117,7 +117,7 @@ If the analysis in step 8 reveals ANY ambiguous answers, you MUST:
 [AI-generated summary of application design artifacts created in bullet points]
 
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the application design artifacts at: `aidlc-docs/inception/application-design/`
+> Please examine the application design artifacts at: `aidlc-docs/branches/{branch}/inception/application-design/`
 
 > **🚀 <u>**WHAT'S NEXT?**</u>**
 >
@@ -140,6 +140,6 @@ If the analysis in step 8 reveals ANY ambiguous answers, you MUST:
 - Mark the approval status clearly
 
 ### 15. Update Progress
-- Mark Application Design stage complete in `aidlc-docs/aidlc-state.md`
+- Mark Application Design stage complete in `aidlc-docs/state/{branch}.md`
 - Update the "Current Status" section
 - Prepare for transition to next stage

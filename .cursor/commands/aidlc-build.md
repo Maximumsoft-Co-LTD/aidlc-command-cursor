@@ -27,7 +27,7 @@ Generate build and test instructions.
 ## Output Files
 
 ```
-aidlc-docs/construction/build-and-test/
+aidlc-docs/branches/{branch}/construction/build-and-test/
 ├── build-instructions.md
 ├── unit-test-instructions.md
 ├── integration-test-instructions.md

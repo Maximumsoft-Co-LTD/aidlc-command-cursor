@@ -31,7 +31,7 @@ Design infrastructure and deployment architecture.
 ## Output Files
 
 ```
-aidlc-docs/construction/{unit-name}/infrastructure-design/
+aidlc-docs/branches/{branch}/construction/{unit-name}/infrastructure-design/
 ├── infrastructure-design.md
 └── deployment-architecture.md
 ```

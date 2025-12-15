@@ -6,7 +6,7 @@ When a user returns to continue work on an existing AI-DLC project, present this
 ```markdown
 **Welcome back! I can see you have an existing AI-DLC project in progress.**
 
-Based on your aidlc-state.md, here's your current status:
+Based on your branch state file (`state/{branch}.md`), here's your current status:
 - **Project**: [project-name]
 - **Current Phase**: [INCEPTION/CONSTRUCTION/OPERATIONS]
 - **Current Stage**: [Stage Name]
@@ -22,7 +22,7 @@ B) Review a previous stage ([Show available stages])
 ```
 
 ## MANDATORY: Session Continuity Instructions
-1. **Always read aidlc-state.md first** when detecting existing project
+1. **Always read `state/{branch}.md` first** when detecting existing project
 2. **Parse current status** from the workflow file to populate the prompt
 3. **MANDATORY: Load Previous Stage Artifacts** - Before resuming any stage, automatically read all relevant artifacts from previous stages:
    - **Reverse Engineering**: Read architecture.md, code-structure.md, api-documentation.md

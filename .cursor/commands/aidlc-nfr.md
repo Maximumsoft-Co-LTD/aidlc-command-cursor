@@ -37,11 +37,11 @@ Define non-functional requirements and design patterns.
 ## Output Files
 
 ```
-aidlc-docs/construction/{unit-name}/nfr-requirements/
+aidlc-docs/branches/{branch}/construction/{unit-name}/nfr-requirements/
 ├── nfr-requirements.md
 └── tech-stack-decisions.md
 
-aidlc-docs/construction/{unit-name}/nfr-design/
+aidlc-docs/branches/{branch}/construction/{unit-name}/nfr-design/
 └── nfr-design-patterns.md
 ```
 

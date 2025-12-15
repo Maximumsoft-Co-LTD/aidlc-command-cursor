@@ -24,15 +24,20 @@ Initialize AIDLC project structure in the current workspace.
    ├── construction/
    │   ├── plans/
    │   └── build-and-test/
-   ├── operations/
-   ├── aidlc-state.md
+   ├── branches/
+   │   ├── {branch}/
+   │   │   ├── inception/
+   │   │   └── construction/
+   ├── state/
+   │   └── {branch}.md
    └── audit/
+       └── {branch}.md
        ├── audit-index.md
        └── {branch}.md
    ```
 
 4. **Create Initial Files**
-   - `aidlc-state.md` - State tracking
+   - `state/{branch}.md` - Branch-based state tracking
    - `audit/{branch}.md` - Branch-based audit trail
    - `CHANGELOG.md` - Project changelog (at project root)
 

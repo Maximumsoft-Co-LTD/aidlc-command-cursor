@@ -25,7 +25,7 @@ Analyze and document project requirements.
 ## Output Files
 
 ```
-aidlc-docs/inception/requirements/
+aidlc-docs/branches/{branch}/inception/requirements/
 ├── requirement-verification-questions.md
 └── requirements.md
 ```

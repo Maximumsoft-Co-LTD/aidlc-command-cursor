@@ -15,9 +15,9 @@
 ### Step 1: Load Reverse Engineering Context (if available)
 
 **IF brownfield project**:
-- Load `aidlc-docs/inception/reverse-engineering/architecture.md`
-- Load `aidlc-docs/inception/reverse-engineering/component-inventory.md`
-- Load `aidlc-docs/inception/reverse-engineering/technology-stack.md`
+- Load `aidlc-docs/branches/{branch}/inception/reverse-engineering/architecture.md`
+- Load `aidlc-docs/branches/{branch}/inception/reverse-engineering/component-inventory.md`
+- Load `aidlc-docs/branches/{branch}/inception/reverse-engineering/technology-stack.md`
 - Use these to understand existing system when analyzing request
 
 ### Step 2: Analyze User Request (Intent Analysis)
@@ -91,7 +91,7 @@ Analyze whatever the user has provided:
 **When in doubt, ask questions** - incomplete requirements lead to poor implementations.
 
 ### Step 6: Generate Clarifying Questions (PROACTIVE APPROACH)
-   - **ALWAYS** create `aidlc-docs/inception/requirements/requirement-verification-questions.md` unless requirements are exceptionally clear and complete
+   - **ALWAYS** create `aidlc-docs/branches/{branch}/inception/requirements/requirement-verification-questions.md` unless requirements are exceptionally clear and complete
    - Ask questions about ANY missing, unclear, or ambiguous areas
    - Focus on functional requirements, non-functional requirements, user scenarios, and business context
    - Request user to fill in all [Answer]: tags directly in the questions document
@@ -104,7 +104,7 @@ Analyze whatever the user has provided:
    - **MANDATORY**: Keep asking questions until ALL ambiguities are resolved OR user explicitly asks to proceed
 
 ### Step 7: Generate Requirements Document
-   - Create `aidlc-docs/inception/requirements/requirements.md`
+   - Create `aidlc-docs/branches/{branch}/inception/requirements/requirements.md`
    - Include intent analysis summary at the top:
      - User request
      - Request type
@@ -116,7 +116,7 @@ Analyze whatever the user has provided:
 
 ### Step 8: Update State Tracking
 
-Update `aidlc-docs/aidlc-state.md`:
+Update `aidlc-docs/state/{branch}.md`:
 
 ```markdown
 ## Stage Progress
@@ -146,7 +146,7 @@ Update `aidlc-docs/aidlc-state.md`:
 
 ```markdown
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the requirements document at: `aidlc-docs/inception/requirements/requirements.md`
+> Please examine the requirements document at: `aidlc-docs/branches/{branch}/inception/requirements/requirements.md`
 
 
 
@@ -166,4 +166,4 @@ Update `aidlc-docs/aidlc-state.md`:
 
    - Wait for explicit user approval before proceeding
    - Record approval response with timestamp
-   - Update Requirements Analysis stage complete in aidlc-state.md
+   - Update Requirements Analysis stage complete in `state/{branch}.md`

@@ -27,7 +27,7 @@ Design detailed business logic per unit.
 ## Output Files
 
 ```
-aidlc-docs/construction/{unit-name}/functional-design/
+aidlc-docs/branches/{branch}/construction/{unit-name}/functional-design/
 ├── business-logic-model.md
 ├── business-rules.md
 └── domain-entities.md

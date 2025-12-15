@@ -48,7 +48,7 @@ This stage generates code for each unit of work through two integrated parts:
   - Service boundaries and responsibilities
 
 ## Step 4: Create Unit Plan Document
-- [ ] Save complete plan as `aidlc-docs/construction/plans/{unit-name}-code-generation-plan.md`
+- [ ] Save complete plan as `aidlc-docs/branches/{branch}/construction/plans/{unit-name}-code-generation-plan.md`
 - [ ] Include step numbering (Step 1, Step 2, etc.)
 - [ ] Include unit context and dependencies
 - [ ] Include story traceability
@@ -77,7 +77,7 @@ This stage generates code for each unit of work through two integrated parts:
 - [ ] Mark the approval status clearly
 
 ## Step 9: Update Progress
-- [ ] Mark Code Planning complete in `aidlc-state.md`
+- [ ] Mark Code Planning complete in `aidlc-docs/state/{branch}.md`
 - [ ] Update the "Current Status" section
 - [ ] Prepare for transition to Code Generation
 
@@ -86,7 +86,7 @@ This stage generates code for each unit of work through two integrated parts:
 # PART 2: GENERATION
 
 ## Step 10: Load Unit Code Generation Plan
-- [ ] Read the complete plan from `aidlc-docs/construction/plans/{unit-name}-code-generation-plan.md`
+- [ ] Read the complete plan from `aidlc-docs/branches/{branch}/construction/plans/{unit-name}-code-generation-plan.md`
 - [ ] Identify the next uncompleted step (first [ ] checkbox)
 - [ ] Load the context for that step (unit, dependencies, stories)
 
@@ -99,7 +99,7 @@ This stage generates code for each unit of work through two integrated parts:
 ## Step 12: Update Progress
 - [ ] Mark the completed step as [x] in the unit code generation plan
 - [ ] Mark associated unit stories as [x] when their generation is finished
-- [ ] Update `aidlc-docs/aidlc-state.md` current status
+- [ ] Update `aidlc-docs/state/{branch}.md` current status
 - [ ] Save all generated artifacts
 - [ ] Update `CHANGELOG.md` with unit changes (see Step 12.1)
 
@@ -155,7 +155,7 @@ After completing all steps for a unit, update the project's `CHANGELOG.md`:
 
 ```markdown
 > **📋 <u>**REVIEW REQUIRED:**</u>**  
-> Please examine the generated code at: `aidlc-docs/construction/[unit-name]/code/`
+> Please examine the generated code at: `aidlc-docs/branches/{branch}/construction/{unit-name}/code/`
 
 
 
@@ -177,7 +177,7 @@ After completing all steps for a unit, update the project's `CHANGELOG.md`:
 ## Step 16: Record Approval and Update Progress
 - Log approval in branch audit file (`aidlc-docs/audit/{branch}.md`) with timestamp
 - Record the user's approval response with timestamp
-- Mark Code Generation stage as complete for this unit in aidlc-state.md
+- Mark Code Generation stage as complete for this unit in `aidlc-docs/state/{branch}.md`
 
 ---
 

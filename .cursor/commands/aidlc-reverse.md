@@ -22,7 +22,7 @@ Analyze existing codebase for brownfield projects.
 
 3. **Output Location**
    ```
-   aidlc-docs/inception/reverse-engineering/
+   aidlc-docs/branches/{branch}/inception/reverse-engineering/
    ├── architecture.md
    ├── component-inventory.md
    ├── technology-stack.md
