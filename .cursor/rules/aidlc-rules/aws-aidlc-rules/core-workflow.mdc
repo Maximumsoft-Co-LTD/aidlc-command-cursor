@@ -2,6 +2,45 @@
 alwaysApply: true
 ---
 
+# 🔴 ABSOLUTE RULE: QUESTIONS MUST BE FILES, NOT CHAT
+
+**CRITICAL - ZERO EXCEPTIONS**: When you need to ask clarifying questions to the user:
+
+1. **NEVER** ask questions directly in the chat message
+2. **ALWAYS** create a question file: `aidlc-docs/branches/{branch}/inception/{stage}-questions.md`
+3. **ALWAYS** use the multiple-choice format from `common/question-format-guide.md`
+4. **ALWAYS** wait for user to complete the file before proceeding
+
+## Question File Creation - MANDATORY
+
+When ANY stage needs clarification from the user:
+
+```markdown
+# File: aidlc-docs/branches/{branch}/inception/{stage}-questions.md
+
+# [Stage Name] Clarification Questions
+
+Please answer the following questions to help clarify the requirements.
+
+## Question 1
+[Clear, specific question text]
+
+A) [First option]
+B) [Second option]
+C) Other (please describe after [Answer]: tag below)
+
+[Answer]: 
+```
+
+**After creating the file, inform user:**
+> "I've created `{stage}-questions.md` with [X] questions.  
+> Please answer each question by filling in the letter choice after the [Answer]: tag.  
+> Let me know when you're done."
+
+**Load `common/question-format-guide.md` for full format details.**
+
+---
+
 # 🚨 CRITICAL: REQUEST TYPE CLASSIFICATION
 
 **BEFORE responding to ANY user message, CLASSIFY the request type:**
@@ -200,7 +239,7 @@ AI:
    - Analyze user request (intent analysis)
    - Determine requirements depth needed
    - Assess current requirements
-   - Ask clarifying questions (if needed)
+   - **🔴 IF clarifying questions needed**: Create `aidlc-docs/branches/{branch}/inception/requirements-questions.md` - NEVER ask in chat
    - Generate requirements document
 4. Execute at appropriate depth (minimal/standard/comprehensive)
 5. **Wait for Explicit Approval**: Follow approval format from requirements-analysis.md detailed steps - DO NOT PROCEED until user confirms
@@ -270,7 +309,9 @@ AI:
 4. Load reverse engineering artifacts (if brownfield)
 5. If Requirements exist, reference them when creating stories
 6. Execute at appropriate depth (minimal/standard/comprehensive)
-7. **PART 1 - Planning**: Create story plan with questions, wait for user answers, analyze for ambiguities, get approval
+7. **PART 1 - Planning**: Create story plan with questions
+   - **🔴 IF questions needed**: Create `aidlc-docs/branches/{branch}/inception/story-planning-questions.md` - NEVER ask in chat
+   - Wait for user answers, analyze for ambiguities, get approval
 8. **PART 2 - Generation**: Execute approved plan to generate stories and personas
 9. **Wait for Explicit Approval**: Follow approval format from user-stories.md detailed steps - DO NOT PROCEED until user confirms
 10. **MANDATORY**: Log user's response in branch audit file with complete raw input
@@ -290,6 +331,7 @@ AI:
    - Determine depth level for each phase
    - Create multi-package change sequence (if brownfield)
    - Generate workflow visualization (VALIDATE Mermaid syntax before writing)
+   - **🔴 IF clarifying questions needed**: Create `aidlc-docs/branches/{branch}/inception/workflow-planning-questions.md` - NEVER ask in chat
 6. **MANDATORY**: Validate all content before file creation per content-validation.md rules
 7. **Wait for Explicit Approval**: Present recommendations using language from workflow-planning.md Step 9, emphasizing user control to override recommendations - DO NOT PROCEED until user confirms
 8. **MANDATORY**: Log user's response in branch audit file with complete raw input
@@ -312,6 +354,7 @@ AI:
 2. Load all steps from `inception/application-design.md`
 3. Load reverse engineering artifacts (if brownfield)
 4. Execute at appropriate depth (minimal/standard/comprehensive)
+   - **🔴 IF clarifying questions needed**: Create `aidlc-docs/branches/{branch}/inception/application-design-questions.md` - NEVER ask in chat
 5. **Wait for Explicit Approval**: Present detailed completion message (see application-design.md for message format) - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in branch audit file with complete raw input
 
@@ -375,6 +418,7 @@ AI:
 1. **MANDATORY**: Log any user input during this stage in branch audit file
 2. Load all steps from `construction/functional-design.md`
 3. Execute functional design for this unit
+   - **🔴 IF clarifying questions needed**: Create `aidlc-docs/branches/{branch}/construction/{unit-name}/functional-design-questions.md` - NEVER ask in chat
 4. **MANDATORY**: Present standardized 2-option completion message as defined in functional-design.md - DO NOT use emergent 3-option behavior
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in branch audit file with complete raw input
@@ -395,6 +439,7 @@ AI:
 1. **MANDATORY**: Log any user input during this stage in branch audit file
 2. Load all steps from `construction/nfr-requirements.md`
 3. Execute NFR assessment for this unit
+   - **🔴 IF clarifying questions needed**: Create `aidlc-docs/branches/{branch}/construction/{unit-name}/nfr-questions.md` - NEVER ask in chat
 4. **MANDATORY**: Present standardized 2-option completion message as defined in nfr-requirements.md - DO NOT use emergent behavior
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in branch audit file with complete raw input
@@ -448,6 +493,7 @@ AI:
 1. **MANDATORY**: Log any user input during this stage in branch audit file
 2. Load all steps from `construction/code-generation.md`
 3. **PART 1 - Planning**: Create code generation plan with checkboxes, get user approval
+   - **🔴 IF clarifying questions needed**: Create `aidlc-docs/branches/{branch}/construction/{unit-name}/code-generation-questions.md` - NEVER ask in chat
 4. **PART 2 - Generation**: Execute approved plan to generate code for this unit
 5. **MANDATORY**: Present standardized 2-option completion message as defined in code-generation.md - DO NOT use emergent behavior
 6. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
@@ -515,6 +561,7 @@ The Operations stage will eventually include:
   - NO ASCII art, NO external image files, NO third-party diagram tools
 - **NO EMERGENT BEHAVIOR**: Construction phases MUST use standardized 2-option completion messages as defined in their respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
 - **CHANGELOG**: User triggers `/aidlc-changelog` command to update CHANGELOG.md. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
+- **🔴 QUESTIONS = FILES**: ALL clarifying questions MUST be placed in question files, NEVER in chat. See `common/question-format-guide.md` for format. Create file → Inform user → Wait for answers.
 
 ## Mid-Workflow Change Handling
 

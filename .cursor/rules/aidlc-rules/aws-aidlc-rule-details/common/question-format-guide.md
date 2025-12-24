@@ -1,19 +1,38 @@
 # Question Format Guide
 
+## 🔴 ABSOLUTE RULE: QUESTIONS MUST BE FILES, NOT CHAT
+
+**ZERO EXCEPTIONS**: You must NEVER ask questions directly in the chat message. ALL questions MUST be placed in dedicated question files.
+
+### Why This Rule Exists
+- Users need a structured way to answer questions
+- Answers are documented in the project for audit trail
+- Multiple-choice format ensures consistent, unambiguous responses
+- Users can review, edit, and return to questions easily
+
+---
+
 ## MANDATORY: All Questions Must Use This Format
 
-### Rule: Never Ask Questions in Chat
-**CRITICAL**: You must NEVER ask questions directly in the chat. ALL questions must be placed in dedicated question files.
+### Question File Location
 
-### Question File Format
+**CRITICAL**: Use the correct path based on the current phase:
 
-#### File Naming Convention
-- Use descriptive names: `{phase-name}-questions.md`
+```text
+# Inception Phase Questions
+aidlc-docs/branches/{branch}/inception/{stage}-questions.md
+
+# Construction Phase Questions  
+aidlc-docs/branches/{branch}/construction/{unit-name}/{stage}-questions.md
+```
+
+### File Naming Convention
+- Use descriptive names: `{stage-name}-questions.md`
 - Examples:
-  - `classification-questions.md`
-  - `requirements-questions.md`
-  - `story-planning-questions.md`
-  - `design-questions.md`
+  - `requirements-questions.md` → `aidlc-docs/branches/main/inception/requirements-questions.md`
+  - `story-planning-questions.md` → `aidlc-docs/branches/main/inception/story-planning-questions.md`
+  - `functional-design-questions.md` → `aidlc-docs/branches/main/construction/unit-1/functional-design-questions.md`
+  - `nfr-questions.md` → `aidlc-docs/branches/main/construction/unit-1/nfr-questions.md`
 
 #### Question Structure
 Every question must include meaningful options plus "Other" as the last option:

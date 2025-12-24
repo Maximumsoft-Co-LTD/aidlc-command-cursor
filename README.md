@@ -151,17 +151,6 @@ git clone <repo-url> aidlc-template
 cp -r aidlc-template/.cursor/ your-project/.cursor/
 ```
 
-### Option 3: Global Installation (ใช้ได้ทุก project)
-
-```bash
-# Copy commands ไปที่ global folder
-cp -r .cursor/commands/* ~/.cursor/commands/
-
-# Copy rules ไปที่ global folder
-mkdir -p ~/.cursor/rules/
-cp -r .cursor/rules/* ~/.cursor/rules/
-```
-
 > ⚠️ **หมายเหตุ**: หลังจาก copy แล้ว **ต้อง Restart Cursor IDE** เพื่อให้ commands แสดง
 
 ---
