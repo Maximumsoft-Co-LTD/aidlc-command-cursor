@@ -1,40 +1,73 @@
-# /aidlc - Main Entry Command
+# /aidlc - AI Development Life Cycle
 
-Main entry point for AIDLC (AI Development Life Cycle) workflow.
+Execute the AIDLC workflow based on user request.
 
-## What This Command Does
+## Instructions
 
-When you use `/aidlc`, the AI will automatically:
+When this command is invoked:
 
-1. **Detect Workspace State**
-   - Check for existing `state/{branch}.md`
-   - Scan for existing source code
-   - Determine if Greenfield (new) or Brownfield (existing code)
+1. **Load the core workflow**: Read and follow rules from `aidlc-rules/aws-aidlc-rules/core-workflow.mdc`
+2. **Classify the request** using the Request Classification Matrix
+3. **Execute appropriate workflow** based on classification
 
-2. **For New Projects**
-   - Create `aidlc-docs/` folder structure
-   - Initialize `state/{branch}.md` and `audit/{branch}.md`
-   - Progress through AIDLC stages
+## 🔴 CRITICAL RULES
 
-3. **For Resume**
-   - Load existing state
-   - Continue from last stage
-   - Show current progress
+### Questions MUST Be Files, NOT Chat
+- **NEVER** ask questions directly in chat
+- **ALWAYS** create question files: `aidlc-docs/branches/{branch}/inception/{stage}-questions.md`
+- Use multiple-choice format from `common/question-format-guide.md`
+- Wait for user to complete file before proceeding
 
-4. **For Specific Requests**
-   - Analyze your request context
-   - Skip stages that aren't needed
-   - Execute relevant stages only
+### Request Classification
 
-## Why Only One Main Command?
+| Type | Description | Action |
+|------|-------------|--------|
+| ❓ Question | About AIDLC, how things work | Answer directly |
+| 📋 Work Request | Add, modify, fix, create, implement | Follow AIDLC workflow |
+| 📊 Status Check | Check status, what's next | Read state file and respond |
+| 🔧 Fix/Resume | Post-completion errors | Fix/Resume flow |
 
-The **AIDLC core-workflow** handles everything automatically:
-- ✅ Auto-progress through stages
-- ✅ Auto-skip unnecessary stages
-- ✅ Context-aware execution
-- ✅ Branch-based state management
+## Workflow Phases
 
-You don't need separate commands for each stage!
+```
+🔵 INCEPTION PHASE (WHAT and WHY)
+├── Workspace Detection (ALWAYS)
+├── Reverse Engineering (brownfield only)
+├── Requirements Analysis (ALWAYS)
+├── User Stories (CONDITIONAL)
+├── Workflow Planning (ALWAYS)
+├── Application Design (CONDITIONAL)
+└── Units Generation (CONDITIONAL)
+
+🟢 CONSTRUCTION PHASE (HOW)
+├── Per-Unit Loop:
+│   ├── Functional Design (CONDITIONAL)
+│   ├── NFR Requirements (CONDITIONAL)
+│   ├── NFR Design (CONDITIONAL)
+│   ├── Infrastructure Design (CONDITIONAL)
+│   └── Code Generation (ALWAYS)
+└── Build and Test (ALWAYS)
+
+🟡 OPERATIONS PHASE (placeholder)
+└── Future: deployment & monitoring
+```
+
+## Directory Structure
+
+```
+aidlc-docs/
+├── audit/{branch}.md         # Audit trail
+├── state/{branch}.md         # Current state
+└── branches/{branch}/
+    ├── inception/            # Inception artifacts
+    │   ├── plans/
+    │   ├── requirements/
+    │   ├── user-stories/
+    │   └── application-design/
+    └── construction/         # Construction artifacts
+        ├── {unit-name}/
+        └── build-and-test/
+```
 
 ## Usage Examples
 
@@ -48,53 +81,28 @@ You don't need separate commands for each stage!
 /aidlc
 ```
 
-### Jump to Specific Stage
+### Jump to Stage
 ```
 /aidlc skip to code generation
 ```
 
-### Re-run a Stage
+### Re-run Stage
 ```
 /aidlc re-run requirements analysis
 ```
 
-## AIDLC Workflow Overview
+## Key Principles
 
-```
-🔵 INCEPTION PHASE
-├── Workspace Detection → Requirements → Stories → Planning → Design → Units
-
-🟢 CONSTRUCTION PHASE  
-├── Functional Design → NFR → Infrastructure → Code Generation → Build & Test
-
-🟡 OPERATIONS PHASE
-└── (Placeholder for future)
-```
+- **Adaptive Execution**: Only execute stages that add value
+- **User Control**: User can request stage inclusion/exclusion
+- **Audit Trail**: Log ALL user inputs in branch audit file
+- **Questions = Files**: ALL clarifying questions in question files, NEVER in chat
+- **Branch-Based**: Separate state/artifacts per Git branch
 
 ## Related Commands
 
 | Command | Description |
 |---------|-------------|
-| `/aidlc-status` | View current status |
+| `/aidlc-status` | View current workflow status |
+| `/aidlc-changelog` | Update CHANGELOG.md |
 | `/aidlc-multi-repo` | Configure related projects |
-
-## Branch-Based System
-
-AIDLC uses **branch-based tracking** for team collaboration:
-
-```
-aidlc-docs/
-├── state/
-│   └── {branch}.md      # State per branch
-├── audit/
-│   └── {branch}.md      # Audit per branch
-└── branches/
-    └── {branch}/        # Artifacts per branch
-        ├── inception/
-        └── construction/
-```
-
-### How It Works
-- Detects current Git branch automatically
-- Creates separate files per branch
-- Archives when branch is merged
